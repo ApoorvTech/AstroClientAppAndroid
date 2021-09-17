@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGrayOpaque20"
+        tools:context="com.myastrotell.ui.tutorials.TutorialActivity">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/dividerGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/tutorialPager"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toTopOf="@id/dividerGuideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+            android:id="@+id/bottomView"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/dividerGuideline" />
+
+
+        <com.myastrotell.utils.CircleIndicator
+            android:id="@+id/tutorialIndicators"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_10dp"
+            app:ci_drawable="@drawable/shape_circle_tutorial_indicator_selected"
+            app:ci_drawable_unselected="@drawable/shape_circle_tutorial_indicator_unselected"
+            app:ci_height="@dimen/dimen_8dp"
+            app:ci_width="@dimen/dimen_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottomView" />
+
+
+        <TextView
+            android:id="@+id/termsAndPolicyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_50dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:layout_marginEnd="@dimen/dimen_50dp"
+            app:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="@dimen/dimen_4dp"
+            android:text="@string/by_signing_up_you_agree_to_our"
+            android:textColor="@color/colorSolidBlack"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tutorialIndicators" />
+
+
+        <LinearLayout
+            android:id="@+id/loginSignupView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:background="@drawable/selector_orange_button"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_4dp"
+            app:layout_constraintBottom_toTopOf="@+id/atvSkipTutorials"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/termsAndPolicyTV">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_user_tutorials" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_18dp"
+                android:layout_marginEnd="@dimen/dimen_24dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/login_signup"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_13sp"
+                app:fontFamily="@font/roboto_bold" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvSkipTutorials"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_18dp"
+            android:alpha="0.5"
+            android:background="?android:attr/selectableItemBackground"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="4sp"
+            android:padding="@dimen/dimen_8dp"
+            android:text="@string/skip_tutorial"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

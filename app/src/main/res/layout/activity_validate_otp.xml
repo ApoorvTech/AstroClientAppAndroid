@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_10dp"
+        tools:context="com.myastrotell.ui.validateotp.ValidateOtpActivity">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_black" />
+
+
+        <!--  Label : Verify Mobile Number  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelVerifyNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:text="@string/verify_mobile_number"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_large"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aivBack" />
+
+
+        <!--  Label : Enter OTP  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelEnterOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:text="@string/enter_otp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_24sp"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelVerifyNumber" />
+
+
+        <!--  Label :  One Time Password  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelOneTimePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            android:text="@string/one_time_password_otp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_medium"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelEnterOtp" />
+
+
+        <!--  OTP Fields  -->
+        <LinearLayout
+            android:id="@+id/llOtp"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:baselineAligned="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelOneTimePassword">
+
+
+            <FrameLayout
+                android:id="@+id/flOtp1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetOtp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_36sp"
+                    tools:text="1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorHint" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flOtp2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetOtp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_36sp"
+                    tools:text="1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorHint" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flOtp3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetOtp3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_36sp"
+                    tools:text="1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorHint" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flOtp4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetOtp4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_36sp"
+                    tools:text="1"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorHint" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flOtp5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetOtp5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_36sp"
+                    tools:text="1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorHint" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/flOtp6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_weight="1">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetOtp6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:maxLength="1"
+                    android:singleLine="true"
+                    android:includeFontPadding="false"
+                    android:paddingTop="@dimen/dimen_5dp"
+                    android:paddingBottom="@dimen/dimen_5dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_36sp"
+                    tools:text="1" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorHint" />
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+        <!--  Resend OTP  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvResendOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="@dimen/dimen_5dp"
+            android:text="@string/resend_otp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_normal"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llOtp" />
+
+
+        <!--  Confirm  -->
+        <Button
+            android:id="@+id/btnConfirm"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:enabled="false"
+            android:text="@string/confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llOtp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

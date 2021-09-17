@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF9C05</color>
+    <color name="colorPrimaryDark">#FF9C05</color>
+    <color name="colorAccent">#FF9C05</color>
+<!--    <color name="colorAccent">#ff5d00</color>-->
+
+    <color name="colorBlack">#333333</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorSolidBlack">#000000</color>
+    <color name="colorGrayText">#80333333</color>
+    <color name="colorGray">#c6cbd4</color>
+    <color name="colorHint">#c6cbd4</color>
+    <color name="colorLightGray">#f5f7f9</color>
+    <color name="colorGrayOpaque15">#26C6CBD4</color>
+    <color name="colorGrayOpaque20">#33C6CBD4</color>
+    <color name="colorGrayOpaque50">#66C6CBD4</color>
+    <color name="colorBlue">#4b74ff</color>
+    <color name="colorGreen">#418F21</color>
+    <color name="colorActiveGreen">#00de51</color>
+    <color name="colorRed">#e60000</color>
+    <color name="colorLightGreyText">#999999</color>
+    <color name="colorClearOrderHistory">#fcdede</color>
+    <color name="colorDisableButtonPrimary">#4DFF9C05</color>
+    <color name="colorPrimaryOpaque10">#1AFF9C05</color>
+    <color name="colorChatBubbleGray">#e4eaf4</color>
+    <color name="colorBlackOpaque4">#0A000000</color>
+    <color name="colorBlackOpaque8">#14000000</color>
+
+</resources>

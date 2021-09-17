@@ -1,0 +1,356 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'com.google.firebase.crashlytics'
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.myastrotell"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 6
+        versionName "1.5.0"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+//            applicationIdSuffix ".debug"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+
+    flavorDimensions "flavors"
+    productFlavors {
+
+        staging {
+            dimension "flavors"
+
+            def API_BASE_URL = '"http://digital.mv1.in/"'
+            def NOTIFICATION_BASE_URL = '"http://digital.mv1.in/"'
+            def PAYMENT_API_BASE_URL = '"http://digital.mv1.in/"'
+            def CHAT_MACHINE_BASE_URL = '"http://digital.mv1.in:9090/"'
+            def WEB_SOCKET_BASE_URL = '"ws://digital.mv1.in:9090/"'
+
+            def INITIATE_PAYMENT = '"ccavPaymentGateway/initiatePayment"'
+            def PAYMENT_REDIRECT_URL = '"ccavPaymentGateway/ccavResponseHandler"'
+            def PAYMENT_CANCEL_URL = '"ccavPaymentGateway/ccavCancelHandler"'
+
+            def HOST_NAME = '"digital.mv1.in"'
+            def CLIENT_ID = '"yBMYafcnQ/OZY70+m7WwWA=="'
+            def DEVICE_TYPE = '"mobile"'
+            def CHANNEL = '"android"'
+            def CHANNEL_NAME = '"android"'
+            def APP_NAME = '"astrology"'
+            def CAMPAIGN_ID = '"1"'
+            def NOTIFICATION_CHANNEL = '"AstroUserChannel"'
+            def BUILD = '"staging"'
+            def COUNTRY_CODE = '"91"'
+
+            buildConfigField 'String', "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', "NOTIFICATION_BASE_URL", NOTIFICATION_BASE_URL
+            buildConfigField 'String', "PAYMENT_API_BASE_URL", PAYMENT_API_BASE_URL
+            buildConfigField 'String', "CHAT_MACHINE_BASE_URL", CHAT_MACHINE_BASE_URL
+            buildConfigField 'String', "WEB_SOCKET_BASE_URL", WEB_SOCKET_BASE_URL
+
+            buildConfigField 'String', "INITIATE_PAYMENT", INITIATE_PAYMENT
+            buildConfigField 'String', "PAYMENT_REDIRECT_URL", PAYMENT_REDIRECT_URL
+            buildConfigField 'String', "PAYMENT_CANCEL_URL", PAYMENT_CANCEL_URL
+
+            buildConfigField 'String', "HOST_NAME", HOST_NAME
+            buildConfigField 'String', "CLIENT_ID", CLIENT_ID
+            buildConfigField 'String', "DEVICE_TYPE", DEVICE_TYPE
+            buildConfigField 'String', "CHANNEL", CHANNEL
+            buildConfigField 'String', "CHANNEL_NAME", CHANNEL_NAME
+            buildConfigField 'String', "APP_NAME", APP_NAME
+            buildConfigField 'String', "CAMPAIGN_ID", CAMPAIGN_ID
+            buildConfigField 'String', "NOTIFICATION_CHANNEL", NOTIFICATION_CHANNEL
+            buildConfigField 'String', "BUILD", BUILD
+
+            resValue 'string', "country_code", COUNTRY_CODE
+
+        }
+
+        uatCCAve {
+            dimension "flavors"
+
+            def API_BASE_URL = '"http://14.99.239.245:8080/"'
+            def NOTIFICATION_BASE_URL = '"http://14.99.239.245:8080/"'
+            def PAYMENT_API_BASE_URL = '"http://digital.mv1.in/"'
+            def CHAT_MACHINE_BASE_URL = '"http://14.99.239.245:8080/"'
+            def WEB_SOCKET_BASE_URL = '"ws://14.99.239.245:8080/"'
+
+            def INITIATE_PAYMENT = '"ccavPaymentGatewayUat/initiatePayment"'
+            def PAYMENT_REDIRECT_URL = '"ccavPaymentGatewayUat/ccavResponseHandler"'
+            def PAYMENT_CANCEL_URL = '"ccavPaymentGatewayUat/ccavCancelHandler"'
+
+            def HOST_NAME = '"14.99.239.245:8080"'
+            def CLIENT_ID = '"yBMYafcnQ/OZY70+m7WwWA=="'
+            def DEVICE_TYPE = '"mobile"'
+            def CHANNEL = '"android"'
+            def CHANNEL_NAME = '"android"'
+            def APP_NAME = '"astrology"'
+            def CAMPAIGN_ID = '"1"'
+            def NOTIFICATION_CHANNEL = '"AstroUserChannel"'
+            def BUILD = '"production"'
+            def COUNTRY_CODE = '"91"'
+
+            buildConfigField 'String', "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', "NOTIFICATION_BASE_URL", NOTIFICATION_BASE_URL
+            buildConfigField 'String', "PAYMENT_API_BASE_URL", PAYMENT_API_BASE_URL
+            buildConfigField 'String', "CHAT_MACHINE_BASE_URL", CHAT_MACHINE_BASE_URL
+            buildConfigField 'String', "WEB_SOCKET_BASE_URL", WEB_SOCKET_BASE_URL
+
+            buildConfigField 'String', "INITIATE_PAYMENT", INITIATE_PAYMENT
+            buildConfigField 'String', "PAYMENT_REDIRECT_URL", PAYMENT_REDIRECT_URL
+            buildConfigField 'String', "PAYMENT_CANCEL_URL", PAYMENT_CANCEL_URL
+
+            buildConfigField 'String', "HOST_NAME", HOST_NAME
+            buildConfigField 'String', "CLIENT_ID", CLIENT_ID
+            buildConfigField 'String', "DEVICE_TYPE", DEVICE_TYPE
+            buildConfigField 'String', "CHANNEL", CHANNEL
+            buildConfigField 'String', "CHANNEL_NAME", CHANNEL_NAME
+            buildConfigField 'String', "APP_NAME", APP_NAME
+            buildConfigField 'String', "CAMPAIGN_ID", CAMPAIGN_ID
+            buildConfigField 'String', "NOTIFICATION_CHANNEL", NOTIFICATION_CHANNEL
+            buildConfigField 'String', "BUILD", BUILD
+
+            resValue 'string', "country_code", COUNTRY_CODE
+
+        }
+
+        production {
+            dimension "flavors"
+
+            def API_BASE_URL = '"http://14.99.239.245:8080/"'
+            def NOTIFICATION_BASE_URL = '"http://14.99.239.245:8080/"'
+            def PAYMENT_API_BASE_URL = '"http://14.99.239.245:8080/"'
+            def CHAT_MACHINE_BASE_URL = '"http://14.99.239.245:8080/"'
+            def WEB_SOCKET_BASE_URL = '"ws://14.99.239.245:8080/"'
+
+            def INITIATE_PAYMENT = '"ccavPaymentGateway/initiatePayment"'
+            def PAYMENT_REDIRECT_URL = '"ccavPaymentGateway/ccavResponseHandler"'
+            def PAYMENT_CANCEL_URL = '"ccavPaymentGateway/ccavCancelHandler"'
+
+            def HOST_NAME = '"14.99.239.245:8080"'
+            def CLIENT_ID = '"yBMYafcnQ/OZY70+m7WwWA=="'
+            def DEVICE_TYPE = '"mobile"'
+            def CHANNEL = '"android"'
+            def CHANNEL_NAME = '"android"'
+            def APP_NAME = '"astrology"'
+            def CAMPAIGN_ID = '"1"'
+            def NOTIFICATION_CHANNEL = '"AstroUserChannel"'
+            def BUILD = '"production"'
+            def COUNTRY_CODE = '"91"'
+
+            buildConfigField 'String', "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', "NOTIFICATION_BASE_URL", NOTIFICATION_BASE_URL
+            buildConfigField 'String', "PAYMENT_API_BASE_URL", PAYMENT_API_BASE_URL
+            buildConfigField 'String', "CHAT_MACHINE_BASE_URL", CHAT_MACHINE_BASE_URL
+            buildConfigField 'String', "WEB_SOCKET_BASE_URL", WEB_SOCKET_BASE_URL
+
+            buildConfigField 'String', "INITIATE_PAYMENT", INITIATE_PAYMENT
+            buildConfigField 'String', "PAYMENT_REDIRECT_URL", PAYMENT_REDIRECT_URL
+            buildConfigField 'String', "PAYMENT_CANCEL_URL", PAYMENT_CANCEL_URL
+
+            buildConfigField 'String', "HOST_NAME", HOST_NAME
+            buildConfigField 'String', "CLIENT_ID", CLIENT_ID
+            buildConfigField 'String', "DEVICE_TYPE", DEVICE_TYPE
+            buildConfigField 'String', "CHANNEL", CHANNEL
+            buildConfigField 'String', "CHANNEL_NAME", CHANNEL_NAME
+            buildConfigField 'String', "APP_NAME", APP_NAME
+            buildConfigField 'String', "CAMPAIGN_ID", CAMPAIGN_ID
+            buildConfigField 'String', "NOTIFICATION_CHANNEL", NOTIFICATION_CHANNEL
+            buildConfigField 'String', "BUILD", BUILD
+
+            resValue 'string', "country_code", COUNTRY_CODE
+
+        }
+
+        liveserver {
+            dimension "flavors"
+
+            def API_BASE_URL = '"https://myastrotell.com/"'
+            def NOTIFICATION_BASE_URL = '"https://myastrotell.com/"'
+            def PAYMENT_API_BASE_URL = '"https://myastrotell.com/"'
+            def CHAT_MACHINE_BASE_URL = '"http://myastrotell.com:8080/"'
+            def WEB_SOCKET_BASE_URL = '"ws://myastrotell.com:8080/"'
+
+            def INITIATE_PAYMENT = '"ccavPaymentGateway/initiatePayment"'
+            def PAYMENT_REDIRECT_URL = '"ccavPaymentGateway/ccavResponseHandler"'
+            def PAYMENT_CANCEL_URL = '"ccavPaymentGateway/ccavCancelHandler"'
+
+            def HOST_NAME = '"myastrotell.com"'
+            def CLIENT_ID = '"yBMYafcnQ/OZY70+m7WwWA=="'
+            def DEVICE_TYPE = '"mobile"'
+            def CHANNEL = '"android"'
+            def CHANNEL_NAME = '"android"'
+            def APP_NAME = '"astrology"'
+            def CAMPAIGN_ID = '"1"'
+            def NOTIFICATION_CHANNEL = '"AstroUserChannel"'
+            def BUILD = '"liveserver"'
+            def COUNTRY_CODE = '"91"'
+
+            buildConfigField 'String', "API_BASE_URL", API_BASE_URL
+            buildConfigField 'String', "NOTIFICATION_BASE_URL", NOTIFICATION_BASE_URL
+            buildConfigField 'String', "PAYMENT_API_BASE_URL", PAYMENT_API_BASE_URL
+            buildConfigField 'String', "CHAT_MACHINE_BASE_URL", CHAT_MACHINE_BASE_URL
+            buildConfigField 'String', "WEB_SOCKET_BASE_URL", WEB_SOCKET_BASE_URL
+
+            buildConfigField 'String', "INITIATE_PAYMENT", INITIATE_PAYMENT
+            buildConfigField 'String', "PAYMENT_REDIRECT_URL", PAYMENT_REDIRECT_URL
+            buildConfigField 'String', "PAYMENT_CANCEL_URL", PAYMENT_CANCEL_URL
+
+            buildConfigField 'String', "HOST_NAME", HOST_NAME
+            buildConfigField 'String', "CLIENT_ID", CLIENT_ID
+            buildConfigField 'String', "DEVICE_TYPE", DEVICE_TYPE
+            buildConfigField 'String', "CHANNEL", CHANNEL
+            buildConfigField 'String', "CHANNEL_NAME", CHANNEL_NAME
+            buildConfigField 'String', "APP_NAME", APP_NAME
+            buildConfigField 'String', "CAMPAIGN_ID", CAMPAIGN_ID
+            buildConfigField 'String', "NOTIFICATION_CHANNEL", NOTIFICATION_CHANNEL
+            buildConfigField 'String', "BUILD", BUILD
+
+            resValue 'string', "country_code", COUNTRY_CODE
+
+        }
+
+    }
+
+
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    //material design
+    implementation "com.google.android.material:material:1.3.0"
+
+    // retrofit for networking
+    def retrofit_version = "2.8.1"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+
+    def okhttp3_version = "4.6.0"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
+
+    // retrofit logging interceptor
+    def logging_version = "4.6.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_version"
+
+    // GSON
+    def gson_version = "2.8.6"
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    // lifecycle-aware components
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    // coroutines for getting off the UI thread
+    def coroutines = "1.3.7"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+
+    // Fresco for images
+    def fresco_version = "2.3.0"
+    implementation "com.facebook.fresco:fresco:$fresco_version"
+
+    // Room for local DB
+    def room_version = "2.2.6"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    //  Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+
+    // image cropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+//    // Acra for crashlytics
+//    def acra_version = "5.7.0"
+//    implementation "ch.acra:acra-mail:$acra_version"
+//    implementation "ch.acra:acra-toast:$acra_version"
+
+    implementation 'ch.acra:acra:4.6.1'
+
+
+    //Firebase
+    def firebase_bom = "26.7.0"
+    implementation platform("com.google.firebase:firebase-bom:$firebase_bom")
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+
+//    def firebase_analytics_version = "17.2.2"
+//    def firebase_messaging_version = "21.0.1"
+//    def firebase_crashlytics_version = "17.2.2"
+//    implementation "com.google.firebase:firebase-analytics:$firebase_analytics_version"
+//    implementation "com.google.firebase:firebase-messaging:$firebase_messaging_version"
+//    implementation "com.google.firebase:firebase-crashlytics:$firebase_crashlytics_version"
+
+    // Date and Time Picker
+    implementation 'com.wdullaer:materialdatetimepicker:2.5.0'
+
+    // analytics sdk
+    implementation 'com.trackier:android-sdk:1.6.9'
+    //install referrer
+    implementation 'com.android.installreferrer:installreferrer:2.2'
+
+    //socket chat
+    implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.6'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.5'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+}

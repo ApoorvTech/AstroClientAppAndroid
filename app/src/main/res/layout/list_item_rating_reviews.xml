@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvNameChar"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:background="@drawable/shape_circle_indicator_selected"
+            android:backgroundTint="@color/colorGreen"
+            android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
+            android:gravity="center"
+            android:maxLength="1"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/atvNameChar"
+            app:layout_constraintTop_toTopOf="@+id/atvNameChar"
+            tools:text="@string/app_name" />
+
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:isIndicator="true"
+            android:progressBackgroundTint="#000"
+            android:stepSize="0.5"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvName"
+            tools:rating="3" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_11sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toEndOf="@id/ratingBar"
+            app:layout_constraintTop_toTopOf="@+id/ratingBar"
+            tools:text="08 September 2020" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvReview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_14sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+            tools:text="This is my review..." />
+
+
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:alpha="0.4"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvReview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

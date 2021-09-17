@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_4dp">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdvImage"
+            android:layout_width="@dimen/dimen_65dp"
+            android:layout_height="@dimen/dimen_65dp"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholderImage="@drawable/shape_rect_light_gray_corner_5dp"
+            app:roundedCornerRadius="@dimen/dimen_5dp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_14dp"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toStartOf="@+id/aivDelete"
+            app:layout_constraintStart_toEndOf="@id/sdvImage"
+            app:layout_constraintTop_toTopOf="@id/sdvImage"
+            tools:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductDesc"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:layout_constraintEnd_toEndOf="@id/atvProductName"
+            app:layout_constraintStart_toStartOf="@id/atvProductName"
+            app:layout_constraintTop_toBottomOf="@id/atvProductName"
+            tools:text="@string/dummy_Description" />
+
+
+        <LinearLayout
+            android:id="@+id/llQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dimen_4dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/sdvImage"
+            app:layout_constraintTop_toBottomOf="@id/sdvImage">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/qty"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_13sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aivMinus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_14dp"
+                app:srcCompat="@drawable/ic_minus" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:digits="@string/digits_numbers"
+                android:gravity="center"
+                android:maxLength="3"
+                android:minWidth="@dimen/dimen_40dp"
+                android:text="1"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aivPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_plus" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:ellipsize="end"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:layout_constraintBottom_toBottomOf="@id/llQuantity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llQuantity"
+            tools:text="Rs 120.00" />
+
+
+        <LinearLayout
+            android:id="@+id/llReference"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:background="@color/colorPrimaryOpaque10"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llQuantity">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_4dp"
+                android:alpha="0.8"
+                android:text="@string/referred_by_consultant"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_12sp"
+                app:fontFamily="@font/roboto_regular" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/aetConsultant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_4dp"
+                android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:padding="@dimen/dimen_4dp"
+                android:singleLine="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_13sp"
+                android:textColorHint="@color/colorHint"
+                android:hint="@string/enter_consultant_name" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:alpha="0.6"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llReference" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

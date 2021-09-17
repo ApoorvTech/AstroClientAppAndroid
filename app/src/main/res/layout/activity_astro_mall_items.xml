@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.myastrotell.ui.astromall.items.AstroMallItemsActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_with_cart" />
+
+
+        <include
+            layout="@layout/layout_no_data_found"
+            android:visibility="invisible" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/aetSearch"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:background="@drawable/shape_rect_stroke_gray_corners_30dp"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawablePadding="@dimen/dimen_8dp"
+            android:gravity="center_vertical"
+            android:hint="@string/search_product_name"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences"
+            android:padding="@dimen/dimen_10dp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItems"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aetSearch"
+            tools:listitem="@layout/list_item_mall_items" />
+
+
+        <include
+            layout="@layout/layout_progressbar"
+            android:visibility="invisible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

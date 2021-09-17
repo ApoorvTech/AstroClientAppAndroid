@@ -1,0 +1,33 @@
+package com.myastrotell.pojo.response
+
+data class OrderDetailResponse(
+    var addressLine1: String?,
+    var addressLine2: String?,
+    var availablePoint: Double?,
+    var campaignId: Int?,
+    var channel: String?,
+    var city: String?,
+    var clientId: String?,
+    var deliveryAddress: String?,
+    var deliveryMobileNo: Long?,
+    var deliveryName: String?,
+    var houseNo: String?,
+    var id: String?,
+    var msisdn: String?,
+    var paytmNumber: Int?,
+    var pinCode: String?,
+    var redeemCode: String?,
+    var redeemDate: Long?,
+    var redeemDatetime: Long?,
+    var redeemMode: String?,
+    var redeemPoint: Double?,
+    var redeemSource: String?,
+    var redeemValue: Double?,
+    var redemptionProcessStatus: String?,
+    var redemptionStatus: String?,
+    var redemptionStatusMessage: String?,
+    var selfPaytm: Boolean?,
+    var state: String?,
+    var totalEarnedPoint: Double?,
+    var uId: String?
+)

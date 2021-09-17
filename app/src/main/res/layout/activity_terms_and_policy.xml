@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.termsandpolicy.TermsAndPolicyActivity">
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlHeader"
+            android:id="@+id/webView"/>
+
+        <!--<androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlHeader">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvTermsAndPolicy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_20dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_15sp"
+                tools:text="@string/dummy_Description" />
+
+        </androidx.core.widget.NestedScrollView>-->
+
+        <include layout="@layout/layout_progressbar" />
+
+    </RelativeLayout>
+
+</layout>

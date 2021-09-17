@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dimen_10dp"
+        android:background="@color/colorWhite"
+        tools:context="com.myastrotell.ui.login.LoginSignUpActivity">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_black" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:background="@drawable/shape_rect_light_gray_curved_sides"
+            android:paddingStart="@dimen/dimen_25dp"
+            android:paddingTop="@dimen/dimen_10dp"
+            android:paddingEnd="@dimen/dimen_25dp"
+            android:paddingBottom="@dimen/dimen_10dp"
+            android:text="@string/skip"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelLoginOrCreateAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:text="@string/login_or_create_a_new_account"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_large"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aivBack" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelEnterNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:text="@string/enter_mobile_number"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_24sp"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelLoginOrCreateAccount" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelMobileNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:text="@string/mobile_number"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_medium"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelEnterNumber" />
+
+
+        <RelativeLayout
+            android:id="@+id/rlEnterNumber"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelMobileNumber">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvCountryCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:digits="1234567890+"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:text="+91"
+                android:textColor="@color/colorHint"
+                android:textColorHint="@color/colorHint"
+                android:textSize="@dimen/text_size_20sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/aetNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@+id/aivCross"
+                android:layout_toEndOf="@id/atvCountryCode"
+                android:background="@android:color/transparent"
+                android:digits="@string/digits_numbers"
+                android:hint="@string/mobile_number"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingStart="@dimen/dimen_6dp"
+                android:paddingTop="@dimen/dimen_10dp"
+                android:paddingEnd="@dimen/dimen_10dp"
+                android:paddingBottom="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorHint"
+                android:textSize="@dimen/text_size_20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_below="@id/aetNumber"
+                android:background="@drawable/drawable_divider" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aivCross"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="@dimen/dimen_5dp"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/ic_cross_round" />
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btnProceed"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_50dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:enabled="false"
+            android:text="@string/proceed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlEnterNumber" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

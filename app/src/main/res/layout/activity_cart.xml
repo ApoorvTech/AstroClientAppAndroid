@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.myastrotell.ui.cart.CartActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <include
+            layout="@layout/layout_no_data_found"
+            android:visibility="invisible" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toTopOf="@+id/atvBuyNow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_8dp"
+                android:paddingBottom="@dimen/dimen_16dp"
+                android:visibility="visible">
+
+                <!--  cart items  -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCartItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/list_item_cart_items" />
+
+
+                <!--  Amount details  -->
+                <RelativeLayout
+                    android:id="@+id/rlAmountDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_16dp"
+                    android:background="@drawable/shape_rect_light_gray_corner_5dp"
+                    android:paddingStart="@dimen/dimen_20dp"
+                    android:paddingTop="@dimen/dimen_16dp"
+                    android:paddingEnd="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvLabelSubTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subtotal"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvLabelDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvLabelSubTotal"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        android:text="@string/discount"
+                        android:visibility="gone"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvLabelShipping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvLabelDiscount"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        android:text="@string/shipping"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvLabelTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvLabelShipping"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        android:text="@string/total"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_15sp" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvSubTotalAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_normal"
+                        tools:text="Rs 110" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvDiscountAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvSubTotalAmount"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        tools:text="- Rs 5"
+                        android:visibility="gone"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvShippingAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvDiscountAmount"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        android:text="@string/free"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_normal" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvTotalAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvShippingAmount"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dimen_28dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_15sp"
+                        tools:text="Rs 120" />
+
+                </RelativeLayout>
+
+
+                <!--  Apply Coupon  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvApplyVoucher"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+                    android:drawableStart="@drawable/ic_apply_coupon"
+                    android:drawableEnd="@drawable/ic_arrow_forward_dark"
+                    android:drawablePadding="@dimen/dimen_14dp"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimen_16dp"
+                    android:text="@string/apply_voucher_code"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlEnterAmount" />
+
+
+                <!--  Applied Coupon  -->
+                <RelativeLayout
+                    android:id="@+id/rlAppliedCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+                    android:backgroundTint="@color/colorPrimaryOpaque10"
+                    android:padding="@dimen/dimen_5dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlEnterAmount">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/dimen_10dp"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_apply_coupon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCouponTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:layout_toStartOf="@+id/aivRemoveCoupon"
+                        android:layout_toEndOf="@id/aivIcon"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_16sp"
+                        tools:text="Voucher Code" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCouponMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvCouponTitle"
+                        android:layout_alignStart="@id/atvCouponTitle"
+                        android:layout_alignEnd="@id/atvCouponTitle"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:layout_marginBottom="@dimen/dimen_10dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_small"
+                        app:fontFamily="@font/roboto_regular"
+                        tools:text="Rs 5 Cashback in wallet after recharge." />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivRemoveCoupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:padding="@dimen/dimen_5dp"
+                        app:srcCompat="@drawable/ic_cross_orange" />
+
+                </RelativeLayout>
+
+
+                <!--  Name  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:visibility="gone"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_name"
+                        android:hint="@string/name_mandatory"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapWords"
+                        android:longClickable="false"
+                        android:maxLength="60"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Number  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelMobileNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_26dp"
+                    android:text="@string/mobile_number_mandatory"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/rlEnterNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCountryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="1234567890+"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:text="+91"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/aetNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/atvCountryCode"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_numbers"
+                        android:enabled="false"
+                        android:hint="@string/mobile_number"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/dimen_8dp"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingEnd="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_below="@id/aetNumber"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </RelativeLayout>
+
+
+                <!--  Select Address  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelSelectAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    android:text="@string/select_address"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp" />
+
+                <!--  Addresses  -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAddresses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:padding="@dimen/dimen_8dp"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/list_item_saved_addresses" />
+
+
+                <!--  Add New Address  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvAddNewAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_22dp"
+                    android:drawableTop="@drawable/ic_add_new_address"
+                    android:drawablePadding="@dimen/dimen_12dp"
+                    android:text="@string/add_new_address"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_16sp" />
+
+
+                <!--  Label : Comments  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelComments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_28dp"
+                    android:text="@string/comments"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_normal"
+                    app:fontFamily="@font/roboto_regular" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetComments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_16dp"
+                    android:background="@drawable/shape_rect_stroke_gray_corners_6dp"
+                    android:digits="@string/digits_alphanumeric_multiline"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:padding="@dimen/dimen_12dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_medium" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvBuyNow"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/dimen_18dp"
+            android:text="@string/buy_now"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

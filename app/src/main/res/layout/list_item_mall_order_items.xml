@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdvImage"
+            android:layout_width="@dimen/dimen_110dp"
+            android:layout_height="@dimen/dimen_110dp"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:scaleType="fitCenter"
+            app:actualImageScaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholderImage="@drawable/shape_rect_light_gray_corner_5dp"
+            app:roundedCornerRadius="@dimen/dimen_5dp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sdvImage"
+            app:layout_constraintTop_toTopOf="@id/sdvImage"
+            tools:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductDesc"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvProductName"
+            app:layout_constraintStart_toStartOf="@id/atvProductName"
+            app:layout_constraintTop_toBottomOf="@id/atvProductName"
+            tools:text="@string/dummy_Description" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_2dp"
+            android:ellipsize="end"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintBottom_toBottomOf="@id/sdvImage"
+            app:layout_constraintStart_toStartOf="@id/atvProductName"
+            tools:text="Rs 120.00/piece" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginBottom="@dimen/dimen_2dp"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintBottom_toBottomOf="@id/sdvImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Qty: 1" />
+
+
+        <LinearLayout
+            android:id="@+id/llReference"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:background="@color/colorGrayOpaque20"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sdvImage">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_4dp"
+                android:text="@string/referred_by_consultant"
+                android:textColor="@color/colorGrayText"
+                android:textSize="@dimen/text_size_12sp" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvConsultant"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginEnd="@dimen/dimen_4dp"
+                android:background="@android:color/transparent"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:imeOptions="actionDone"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_13sp"
+                tools:text="Consultant Name" />
+
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@color/colorLightGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llReference" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

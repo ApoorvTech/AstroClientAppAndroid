@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_6dp"
+        android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+        android:backgroundTint="@color/colorWhite"
+        android:elevation="@dimen/dimen_3dp"
+        android:paddingStart="@dimen/dimen_20dp"
+        android:paddingTop="@dimen/dimen_16dp"
+        android:paddingEnd="@dimen/dimen_20dp"
+        android:paddingBottom="@dimen/dimen_12dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvTitle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_large"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvMessage"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_large"
+            app:fontFamily="@font/roboto_regular"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvTitle"
+            tools:text="@string/dummy_Description" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_normal"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvMessage"
+            tools:text="12 Aug 20, 05:30 pm" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

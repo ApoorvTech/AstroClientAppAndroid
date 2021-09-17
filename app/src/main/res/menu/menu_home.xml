@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menuWallet"
+        android:icon="@drawable/ic_wallet_white"
+        app:showAsAction="always"
+        android:title="@string/wallet" />
+
+    <item android:id="@+id/menuChat"
+        android:icon="@drawable/ic_support_chat_white"
+        app:showAsAction="always"
+        android:title="@string/support" />
+
+    <item android:id="@+id/menuNotification"
+        android:icon="@drawable/ic_bell_white"
+        app:showAsAction="always"
+        android:title="@string/notifications" />
+
+</menu>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.myastrotell.ui.astromall.productdetail.ProductDetailActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_with_cart" />
+
+
+        <ScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toTopOf="@+id/btnAddToCart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vpImages"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:overScrollMode="never"
+                    app:layout_constraintDimensionRatio="4:3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.myastrotell.utils.CircleIndicator
+                    android:id="@+id/ciImages"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_10dp"
+                    app:ci_height="@dimen/dimen_10dp"
+                    app:ci_width="@dimen/dimen_10dp"
+                    app:ci_drawable="@drawable/drawable_product_image_indicator_selected"
+                    app:ci_drawable_unselected="@drawable/drawable_product_image_indicator_unselected"
+                    app:layout_constraintBottom_toBottomOf="@id/vpImages"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivViewFullScreenImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_2dp"
+                    android:padding="@dimen/dimen_14dp"
+                    app:layout_constraintBottom_toBottomOf="@id/vpImages"
+                    app:layout_constraintEnd_toEndOf="@id/vpImages"
+                    app:srcCompat="@drawable/ic_expand" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvProductName"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:layout_marginEnd="@dimen/dimen_18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vpImages"
+                    tools:text="@string/app_name" />
+
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvProductDesc"
+                    android:visibility="gone"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvProductName"
+                    tools:text="@string/dummy_Description" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_18dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvProductDesc"
+                    tools:text="Rs 100.00/piece" />
+
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_28dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:alpha="0.45"
+                    android:background="@color/colorGray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvProductPrice" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_18dp"
+                    android:layout_marginTop="@dimen/dimen_18dp"
+                    android:text="@string/qty"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_14dp"
+                    app:layout_constraintBottom_toTopOf="@id/view2"
+                    app:layout_constraintStart_toEndOf="@id/atvLabelQuantity"
+                    app:layout_constraintTop_toBottomOf="@id/view1"
+                    app:srcCompat="@drawable/ic_minus" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:digits="@string/digits_numbers"
+                    android:gravity="center"
+                    android:maxLength="3"
+                    android:minWidth="@dimen/dimen_40dp"
+                    android:text="1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toTopOf="@id/view2"
+                    app:layout_constraintStart_toEndOf="@id/aivMinus"
+                    app:layout_constraintTop_toBottomOf="@id/view1" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/view2"
+                    app:layout_constraintStart_toEndOf="@id/atvQuantity"
+                    app:layout_constraintTop_toBottomOf="@id/view1"
+                    app:srcCompat="@drawable/ic_plus" />
+
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_18dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:alpha="0.45"
+                    android:background="@color/colorGray"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvLabelQuantity" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelProductDetail"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:gravity="center_vertical"
+                    android:padding="8dp"
+                    android:text="@string/product_details"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view2" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivProductDetailArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:rotation="90"
+                    app:layout_constraintBottom_toBottomOf="@id/atvLabelProductDetail"
+                    app:layout_constraintEnd_toEndOf="@id/atvLabelProductDetail"
+                    app:layout_constraintTop_toTopOf="@id/atvLabelProductDetail"
+                    app:srcCompat="@drawable/ic_arrow_forward_dark" />
+
+
+
+
+
+                <WebView
+                    android:scrollbars="none"
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_8dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:visibility="gone"
+                    app:fontFamily="@font/roboto_regular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvLabelProductDetail"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvProductDetail"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_8dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    android:visibility="gone"
+                    app:fontFamily="@font/roboto_regular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvLabelProductDetail"
+                    tools:text="@string/dummy_Description" />
+
+
+                <View
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_marginBottom="@dimen/dimen_18dp"
+                    android:alpha="0.45"
+                    android:background="@color/colorGray"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/webview" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
+        <Button
+            android:id="@+id/btnAddToCart"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/dimen_18dp"
+            android:text="@string/add_to_cart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <include
+            layout="@layout/layout_progressbar"
+            android:visibility="invisible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

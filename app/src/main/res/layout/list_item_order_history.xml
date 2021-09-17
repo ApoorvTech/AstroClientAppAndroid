@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8dp"
+        android:background="@drawable/shape_rect_white_corners_16dp_ripple"
+        android:clickable="false"
+        android:elevation="@dimen/dimen_4dp"
+        android:paddingBottom="@dimen/dimen_10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_4dp"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/viewDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvOrderId"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_40dp"
+            android:gravity="center"
+            android:text="@string/order_id"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvReportTitle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_40dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvOrderId"
+            tools:text="@string/order_id" />
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:alpha="0.5"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvReportTitle" />
+
+
+        <!--  Image  -->
+        <FrameLayout
+            android:id="@+id/flImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_14dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewDivider">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdvImage"
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginBottom="@dimen/dimen_7dp"
+                android:background="@drawable/shape_circle_stroke_orange"
+                android:padding="@dimen/dimen_5dp"
+                android:scaleType="centerCrop"
+                app:actualImageScaleType="centerCrop"
+                app:placeholderImage="@drawable/shape_circle_gray"
+                app:roundAsCircle="true" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_checked" />
+
+        </FrameLayout>
+
+
+        <!--  Astrologer Name  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintEnd_toStartOf="@id/flImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/flImage"
+            tools:text="Astrologer's Name" />
+
+
+        <!--  status  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:text="@string/status"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvName" />
+
+        <!--  status  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvStatus"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:textColor="@color/colorGreen"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toEndOf="@id/atvLabelStatus"
+            app:layout_constraintTop_toTopOf="@+id/atvLabelStatus"
+            tools:text="Completed" />
+
+
+        <!--  Date-Time  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_22dp"
+            android:text="@string/date_and_time"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelStatus" />
+
+
+        <!--  Details  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvDetails"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_22dp"
+            android:layout_marginEnd="@dimen/dimen_14dp"
+            android:ellipsize="end"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toStartOf="@+id/atvAction"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvDateTime"
+            tools:text="Call Rate: Rs 30/minute\nDuration: 10 minute\nDeduction: Rs 30.00" />
+
+
+        <!--  Action  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_18dp"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:background="@drawable/shape_rect_orange_curved_sides"
+            android:backgroundTint="@color/colorGreen"
+            android:backgroundTintMode="src_atop"
+            android:gravity="center"
+            app:fontFamily="@font/roboto_regular"
+            android:minWidth="@dimen/dimen_75dp"
+            android:paddingStart="@dimen/dimen_12dp"
+            android:paddingTop="@dimen/dimen_8dp"
+            android:paddingEnd="@dimen/dimen_12dp"
+            android:paddingBottom="@dimen/dimen_8dp"
+            tools:text="@string/get_report"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flImage" />
+
+
+        <!--  rate  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:layout_marginEnd="@dimen/dimen_6dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_11sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvAction"
+            app:layout_constraintTop_toBottomOf="@id/atvAction"
+            tools:text="Rs 100/report" />
+
+
+        <!--  View Report  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvViewReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:padding="@dimen/dimen_6dp"
+            android:text="@string/view_report"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_12sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvDetails" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

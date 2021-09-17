@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8dp"
+        android:background="@drawable/shape_rect_white_corners_16dp_ripple"
+        android:clickable="false"
+        android:elevation="@dimen/dimen_4dp"
+        android:paddingBottom="@dimen/dimen_10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_4dp"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/viewDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_delete" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvOrderId"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_marginEnd="@dimen/dimen_40dp"
+            android:gravity="center"
+            android:text="@string/order_id"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:alpha="0.5"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvOrderId" />
+
+
+        <!--  Image  -->
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdvImage"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_14dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:scaleType="fitCenter"
+            app:actualImageScaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewDivider"
+            app:placeholderImage="@drawable/shape_rect_light_gray_corner_5dp"
+            app:roundedCornerRadius="@dimen/dimen_5dp" />
+
+
+        <!--  Astrologer Name  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintEnd_toStartOf="@id/sdvImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/sdvImage"
+            tools:text="Astrologer's Name" />
+
+
+        <!--  Label: status  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:text="@string/status"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvName" />
+
+        <!--  status  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvStatus"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:textColor="@color/colorGreen"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toEndOf="@id/atvLabelStatus"
+            app:layout_constraintTop_toTopOf="@+id/atvLabelStatus"
+            tools:text="Complete" />
+
+
+        <!--  Label: Placed On  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelPlacedOn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="@string/placed_on"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelStatus" />
+
+        <!--  Placed On  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvPlacedOn"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toEndOf="@id/atvLabelPlacedOn"
+            app:layout_constraintTop_toTopOf="@+id/atvLabelPlacedOn"
+            tools:text="25 August 2020" />
+
+
+        <!--  Label: Ship to  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelShipTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:text="@string/ship_to"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelPlacedOn" />
+
+        <!--  Ship to  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvShipTo"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toEndOf="@id/atvLabelShipTo"
+            app:layout_constraintTop_toTopOf="@+id/atvLabelShipTo"
+            tools:text="User Name" />
+
+
+        <!--  Label: Order Total  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelOrderTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:text="@string/order_total"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelShipTo" />
+
+        <!--  Order Total  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvOrderTotal"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_6dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_13sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toEndOf="@id/atvLabelOrderTotal"
+            app:layout_constraintTop_toTopOf="@+id/atvLabelOrderTotal"
+            tools:text="Rs 100.00" />
+
+
+        <!--  View Order Details  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvViewDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:padding="@dimen/dimen_6dp"
+            android:text="@string/view_order_details"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_12sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelOrderTotal" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

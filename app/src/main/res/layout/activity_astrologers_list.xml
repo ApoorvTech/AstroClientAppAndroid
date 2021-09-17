@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/colorLightGray"
+        tools:context="com.myastrotell.ui.astrologerslist.AstrologersListActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <!--  Search / Filter Layout  -->
+        <RelativeLayout
+            android:id="@+id/rlSearchSort"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGray"
+            android:paddingStart="@dimen/dimen_15dp"
+            android:paddingTop="@dimen/dimen_8dp"
+            android:paddingEnd="@dimen/dimen_15dp"
+            android:paddingBottom="@dimen/dimen_8dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/aetSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_rect_stroke_gray_corners_30dp"
+                android:backgroundTint="@color/colorWhite"
+                android:drawableStart="@drawable/ic_search_gray"
+                android:drawablePadding="@dimen/dimen_10dp"
+                android:gravity="center_vertical"
+                android:hint="@string/search_name_skill_language"
+                android:imeOptions="actionDone"
+                android:padding="@dimen/dimen_12dp"
+                android:singleLine="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_14sp"
+                android:visibility="gone"
+                app:fontFamily="@font/roboto_regular" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_rect_stroke_gray_corners_30dp"
+                android:backgroundTint="@color/colorWhite"
+                android:drawableEnd="@drawable/ic_arrow_down"
+                android:gravity="center"
+                android:hint="@string/sort_by"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/dimen_25dp"
+                android:paddingTop="@dimen/dimen_15dp"
+                android:paddingEnd="@dimen/dimen_25dp"
+                android:paddingBottom="@dimen/dimen_15dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_14sp"
+                android:visibility="gone"
+                app:fontFamily="@font/roboto_regular" />
+
+        </RelativeLayout>
+
+
+        <!--  Wallet Recharge  -->
+        <include
+            layout="@layout/layout_wallet_recharge_header"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rlSearchSort" />
+
+
+        <include
+            layout="@layout/layout_no_data_found"
+            android:visibility="invisible" />
+
+
+        <!--  Filter Options dialog view  -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAstrologers"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dimen_14dp"
+            android:paddingTop="@dimen/dimen_8dp"
+            android:paddingEnd="@dimen/dimen_14dp"
+            android:paddingBottom="@dimen/dimen_8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlWalletRecharge"
+            tools:listitem="@layout/list_item_astrologers" />
+
+        <FrameLayout
+            android:id="@+id/flFilterOptions"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.6"
+                android:background="@color/colorBlack" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_15dp"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_marginEnd="@dimen/dimen_15dp"
+                android:background="@drawable/shape_rect_white_corners_20dp"
+                android:elevation="@dimen/dimen_5dp"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/dimen_10dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_arrow_down"
+                    android:gravity="center"
+                    android:hint="@string/sort_by"
+                    android:includeFontPadding="false"
+                    android:paddingStart="@dimen/dimen_25dp"
+                    android:paddingTop="@dimen/dimen_15dp"
+                    android:paddingEnd="@dimen/dimen_25dp"
+                    android:paddingBottom="@dimen/dimen_15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:alpha="0.5"
+                    android:background="@color/colorGray" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvExperienceHTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="@string/experience_high_to_low"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvExperienceLTH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="@string/experience_low_to_high"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvTotalOrdersHTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="@string/total_orders_high_to_low"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvTotalOrdersLTH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="@string/total_orders_low_to_high"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvPriceHTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="@string/price_high_to_low"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvPriceLTH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="@string/price_low_to_high"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_14sp"
+                    app:fontFamily="@font/roboto_regular" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

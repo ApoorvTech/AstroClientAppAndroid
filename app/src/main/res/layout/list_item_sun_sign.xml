@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_6dp"
+        android:id="@+id/clMain"
+        android:background="@drawable/shape_rect_white_corners_16dp_ripple"
+        android:backgroundTint="@color/selector_color_sunsign_bg"
+        android:elevation="@dimen/dimen_2dp">
+
+
+        <LinearLayout
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdvImage"
+                android:layout_width="@dimen/dimen_54dp"
+                android:layout_height="@dimen/dimen_54dp"
+                android:scaleType="centerCrop"
+                app:placeholderImage="@drawable/shape_circle_gray" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_6dp"
+                android:layout_marginBottom="@dimen/dimen_3dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/select_text_color_sunsign_title"
+                android:textSize="@dimen/text_size_normal"
+                tools:text="Gemini" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/selector_text_color_horoscope_date"
+                android:textSize="@dimen/text_size_11sp"
+                tools:text="21 Apr - 21 Jun" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

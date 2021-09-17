@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_6dp"
+        android:background="@drawable/shape_rect_white_corners_16dp_ripple"
+        android:elevation="@dimen/dimen_4dp"
+        android:paddingStart="@dimen/dimen_12dp"
+        android:paddingTop="@dimen/dimen_15dp"
+        android:paddingEnd="@dimen/dimen_12dp"
+        android:paddingBottom="@dimen/dimen_15dp">
+
+
+        <!--  Image  -->
+        <FrameLayout
+            android:id="@+id/flImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdvImage"
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginBottom="@dimen/dimen_7dp"
+                android:background="@drawable/shape_circle_stroke_orange"
+                android:padding="@dimen/dimen_5dp"
+                android:scaleType="centerCrop"
+                app:placeholderImage="@drawable/shape_circle_gray"
+                app:roundAsCircle="true" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                app:srcCompat="@drawable/ic_checked" />
+
+        </FrameLayout>
+
+
+        <!--  Ratings  -->
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:isIndicator="true"
+            android:progressBackgroundTint="#000"
+            android:progressTint="@color/colorPrimary"
+            android:rating="3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/flImage" />
+
+
+        <!--  Total people attended  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvTotalPersonAttended"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_3dp"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:drawableStart="@drawable/ic_user_gray_small"
+            android:drawablePadding="@dimen/dimen_4dp"
+            android:gravity="center"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_11sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar"
+            tools:text="1000 total" />
+
+
+        <!--  Astrologer Name  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintEnd_toStartOf="@+id/aivBell"
+            app:layout_constraintStart_toEndOf="@id/flImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Astrologer's Name" />
+
+
+        <!--  Details  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvSkills"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_12sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvName"
+            tools:text="Vedic Astrology, Vasthu" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLanguages"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_12sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvSkills"
+            tools:text="English, Hindi" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvExperience"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_12sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintTop_toBottomOf="@id/atvLanguages"
+            tools:text="Exp: 25 Years" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivBell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_bell_black" />
+
+
+        <!--  Fees  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvFees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/atvName"
+            app:layout_constraintBottom_toBottomOf="@+id/llAction"
+            android:layout_marginTop="@dimen/dimen_2dp"
+            android:gravity="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            tools:text="Rs. 100/min" />
+
+
+        <LinearLayout
+            android:id="@+id/llAction"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="end|bottom"
+            android:orientation="vertical"
+            android:minHeight="@dimen/dimen_50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atvExperience">
+
+
+            <!--  Action  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvAction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_rect_orange_curved_sides"
+                android:backgroundTint="@color/colorGreen"
+                android:backgroundTintMode="src_atop"
+                android:includeFontPadding="false"
+                android:paddingStart="@dimen/dimen_22dp"
+                android:paddingTop="@dimen/dimen_8dp"
+                android:paddingEnd="@dimen/dimen_22dp"
+                android:paddingBottom="@dimen/dimen_8dp"
+                android:text="@string/chat"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_12sp" />
+
+
+            <!--  waiting time  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvWaitTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/text_size_12sp"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:layout_marginEnd="@dimen/dimen_4dp"
+                app:fontFamily="@font/roboto_regular"
+                tools:text="Wait Time: 5 min" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.myastrotell.ui.support.SupportActivity">
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_80dp"
+            android:src="@drawable/ic_support_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvAppVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            app:fontFamily="@font/roboto_regular"
+            android:text="Version: 1.0.0"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aivSupport" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvPhoneHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="@string/email_id"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toStartOf="@id/atvPhoneValue"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvAppVersion" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvPhoneValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="?android:attr/selectableItemBackground"
+            tools:text=""
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/atvPhoneHeader"
+            app:layout_constraintTop_toBottomOf="@id/atvAppVersion" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvWebsiteHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:text="@string/website"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toStartOf="@id/atvWebsiteValue"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvPhoneHeader" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvWebsiteValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:background="?android:attr/selectableItemBackground"
+            tools:text=""
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/text_size_14sp"
+            android:layout_marginStart="@dimen/dimen_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/atvWebsiteHeader"
+            app:layout_constraintTop_toBottomOf="@id/atvPhoneHeader" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

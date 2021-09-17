@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.myastrotell.ui.home.HomeActivity">
+
+
+        <include layout="@layout/layout_home" />
+
+
+        <!--  Side Menu  -->
+        <RelativeLayout
+            android:id="@+id/rlMenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/colorLightGray"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <RelativeLayout
+                android:id="@+id/rlTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:padding="@dimen/dimen_8dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivCross"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?android:attr/actionBarItemBackground"
+                    android:padding="@dimen/dimen_10dp"
+                    app:srcCompat="@drawable/ic_cross_white" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:srcCompat="@drawable/atl2" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rlProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/aivCross"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_10dp"
+                    android:layout_marginBottom="@dimen/dimen_20dp"
+                    android:paddingTop="@dimen/dimen_20dp"
+                    android:paddingBottom="@dimen/dimen_20dp">
+
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sdvImage"
+                        android:layout_width="@dimen/dimen_45dp"
+                        android:layout_height="@dimen/dimen_45dp"
+                        android:layout_marginStart="@dimen/dimen_8dp"
+                        app:roundAsCircle="true"
+                        app:placeholderImage="@drawable/ic_user_placeholder_side_menu"
+                        app:placeholderImageScaleType="centerCrop" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/dimen_12dp"
+                        android:layout_marginEnd="@dimen/dimen_20dp"
+                        android:layout_toStartOf="@+id/aivArrow"
+                        android:layout_toEndOf="@id/sdvImage"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/atvUserName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_size_18sp"
+                            android:visibility="gone"
+                            tools:text="@string/app_name" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/atvNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="1234567890+- "
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimen_4dp"
+                            android:paddingBottom="@dimen/dimen_4dp"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/text_size_16sp"
+                            tools:text="9876543210" />
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivArrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        app:srcCompat="@drawable/ic_arrow_forward_dark"
+                        app:tint="@color/colorWhite" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSideMenu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/atvAppVersion"
+                android:layout_below="@id/rlTop"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_2dp"
+                android:background="@color/colorWhite"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/list_item_side_menu_options" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvAppVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/dimen_16dp"
+                android:alpha="0.5"
+                android:text="@string/version"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_small"
+                app:fontFamily="@font/roboto_regular" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

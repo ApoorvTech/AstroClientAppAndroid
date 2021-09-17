@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.myastrotell.ui.wallet.paymentinformation.PaymentInformationActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMain"
+            android:visibility="invisible"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toTopOf="@+id/atvProceed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+
+            <!--  Label : Payment Details¬  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvLabelPaymentDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="@string/payment_details"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:alpha="0.5"
+                android:background="@color/colorGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atvLabelPaymentDetails" />
+
+
+            <!--  Label : Subtotal  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvLabelSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:text="@string/payment_details"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view1" />
+
+            <!--  Subtotal  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/atvLabelSubtotal"
+                tools:text="Rs 100.00" />
+
+
+            <!--  Label : Voucher Discount  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvLabelDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/discount"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atvLabelSubtotal" />
+
+
+            <!--  Voucher Discount  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/atvLabelDiscount"
+                tools:text="- Rs 10.00" />
+
+
+            <!--  Label : GST  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvLabelGST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/GST_at"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atvLabelDiscount" />
+
+            <!--  GST  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvGST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/atvLabelGST"
+                tools:text="Rs 18.00" />
+
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="@dimen/dimen_1dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:alpha="0.5"
+                android:background="@color/colorGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atvLabelGST" />
+
+
+            <!--  Label : Total Payable Amount  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvLabelTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/total_payable_amount"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view2" />
+
+            <!--  Total Amount  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvTotalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/atvLabelTotalAmount"
+                tools:text="Rs 108.00" />
+
+
+            <!--  Apply Coupon  -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvApplyCoupon"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_45dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+                android:backgroundTint="@color/colorGrayOpaque50"
+                android:drawableStart="@drawable/ic_apply_coupon"
+                android:drawableEnd="@drawable/ic_arrow_forward_dark"
+                android:drawablePadding="@dimen/dimen_14dp"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimen_16dp"
+                android:text="@string/apply_coupon"
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_large"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atvTotalAmount" />
+
+
+            <!--  Applied Coupon  -->
+            <RelativeLayout
+                android:id="@+id/rlAppliedCoupon"
+                android:layout_width="@dimen/dimen_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_45dp"
+                android:layout_marginEnd="@dimen/dimen_16dp"
+                android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+                android:backgroundTint="@color/colorPrimaryOpaque10"
+                android:padding="@dimen/dimen_5dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/atvTotalAmount">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/dimen_10dp"
+                    android:tint="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_apply_coupon" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvCouponTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:layout_marginEnd="@dimen/dimen_5dp"
+                    android:layout_toStartOf="@+id/aivRemoveCoupon"
+                    android:layout_toEndOf="@id/aivIcon"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_16sp"
+                    tools:text="Voucher Code" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvCouponMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/atvCouponTitle"
+                    android:layout_alignStart="@id/atvCouponTitle"
+                    android:layout_alignEnd="@id/atvCouponTitle"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_small"
+                    app:fontFamily="@font/roboto_regular"
+                    tools:text="Rs 5 Cashback in wallet after recharge." />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivRemoveCoupon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:padding="@dimen/dimen_5dp"
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/ic_cross_orange" />
+
+            </RelativeLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--  Proceed  -->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProceed"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/dimen_18dp"
+            android:text="@string/proceed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.myastrotell.ui.wallet.transationhistory.TransactionHistoryActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <!--  Wallet Recharge  -->
+        <include
+            android:id="@+id/rlWalletRecharge"
+            layout="@layout/layout_wallet_recharge_header"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+
+        <include layout="@layout/layout_no_data_found"
+            android:visibility="invisible"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelTransactions"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorGrayOpaque50"
+            android:gravity="center"
+            android:padding="@dimen/dimen_8dp"
+            android:text="@string/wallet_transactions"
+            android:textColor="@color/colorBlack"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlWalletRecharge" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTransaction"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvLabelTransactions"
+            tools:listitem="@layout/list_item_transaction_history" />
+
+
+        <include
+            layout="@layout/layout_progressbar"
+            android:visibility="invisible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

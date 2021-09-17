@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_10dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="@dimen/dimen_8dp"
+        app:cardElevation="0dp">
+
+        <FrameLayout
+            android:id="@+id/flCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="0.5dp"
+            android:paddingEnd="0.5dp"
+            android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvOfferStrip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-40dp"
+                android:layout_marginTop="@dimen/dimen_12dp"
+                android:background="@color/colorPrimary"
+                android:ems="8"
+                android:gravity="center"
+                android:maxLines="1"
+                android:padding="@dimen/dimen_6dp"
+                android:rotation="-49"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_small"
+                app:fontFamily="@font/roboto_bold"
+                tools:text="5% OFF" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_28dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_18sp"
+                app:fontFamily="@font/roboto_bold"
+                tools:text="+ Rs 5000" />
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

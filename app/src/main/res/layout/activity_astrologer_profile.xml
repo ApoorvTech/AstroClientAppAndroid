@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightGray"
+        tools:context="com.myastrotell.ui.astrologerprofile.AstrologerProfileActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            app:layout_constraintBottom_toTopOf="@+id/llBottomOptions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:visibility="invisible"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--  Wallet Recharge  -->
+                <include layout="@layout/layout_wallet_recharge_header" />
+
+
+                <!--  Astrologer's details  -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:background="@color/colorWhite"
+                    android:padding="@dimen/dimen_16dp">
+
+                    <!--  Image  -->
+                    <FrameLayout
+                        android:id="@+id/flImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/sdvImage"
+                            android:layout_width="@dimen/dimen_100dp"
+                            android:layout_height="@dimen/dimen_100dp"
+                            android:layout_marginBottom="@dimen/dimen_7dp"
+                            android:background="@drawable/shape_circle_stroke_orange"
+                            android:padding="@dimen/dimen_5dp"
+                            android:scaleType="centerCrop"
+                            app:placeholderImage="@drawable/shape_circle_gray"
+                            app:roundAsCircle="true" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal|bottom"
+                            app:srcCompat="@drawable/ic_checked" />
+
+                    </FrameLayout>
+
+                    <!--  Astrologer Name  -->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_18dp"
+                        android:layout_toEndOf="@id/flImage"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_16sp"
+                        app:fontFamily="@font/roboto_medium"
+                        tools:text="Astrologer's Name" />
+
+
+                    <!--  Languages  -->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvLanguages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvName"
+                        android:layout_alignStart="@id/atvName"
+                        android:layout_alignEnd="@id/atvName"
+                        android:layout_marginTop="@dimen/dimen_5dp"
+                        android:maxLines="5"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_13sp"
+                        app:fontFamily="@font/roboto_regular"
+                        tools:text="English, Hindi" />
+
+
+                    <!--  Experience  -->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvExperience"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvLanguages"
+                        android:layout_alignStart="@id/atvName"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:drawableStart="@drawable/ic_cap"
+                        android:drawablePadding="@dimen/dimen_8dp"
+                        android:maxLines="5"
+                        android:textColor="@color/colorGrayText"
+                        android:textSize="@dimen/text_size_13sp"
+                        app:fontFamily="@font/roboto_regular"
+                        tools:text="10 Years" />
+
+
+                    <!--  Speciality  -->
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/cgSkills"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/flImage"
+                        app:chipSpacingVertical="@dimen/dimen_0dp"
+                        app:chipSpacingHorizontal="@dimen/dimen_10dp"
+                        android:layout_marginTop="@dimen/dimen_20dp" />
+
+                </RelativeLayout>
+
+
+                <!--  Astrologer's professional details  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:background="@color/colorWhite"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_16dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/aivChatTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_chat_gray" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_8dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvTotalChatTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dimen_2dp"
+                                android:text="0"
+                                android:textColor="@color/colorBlack" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvChatTimeUnit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dimen_2dp"
+                                android:text="@string/mins"
+                                android:textColor="@color/colorGrayText"
+                                android:textSize="@dimen/text_size_16sp"
+                                app:fontFamily="@font/roboto_regular" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/aivTalkTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_call_gray" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_8dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvTotalCallTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dimen_2dp"
+                                android:text="0"
+                                android:textColor="@color/colorBlack" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvCallTimeUnit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dimen_2dp"
+                                android:text="@string/mins"
+                                android:textColor="@color/colorGrayText"
+                                android:textSize="@dimen/text_size_16sp"
+                                app:fontFamily="@font/roboto_regular" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/aivReports"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/ic_chat_gray" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_8dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvTotalReports"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dimen_2dp"
+                                android:text="0"
+                                android:textColor="@color/colorBlack" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dimen_2dp"
+                                android:text="@string/reports"
+                                android:textColor="@color/colorGrayText"
+                                android:textSize="@dimen/text_size_16sp"
+                                app:fontFamily="@font/roboto_regular" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!--  About Astrologer  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/about_me"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_large" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvAbout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_12dp"
+                        android:alpha="0.8"
+                        tools:text="@string/dummy_Description"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_medium"
+                        android:ellipsize="end"
+                        app:fontFamily="@font/roboto_regular" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvReadMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_16dp"
+                        android:alpha="0.8"
+                        android:background="@drawable/shape_rect_white_corners_16dp_ripple"
+                        android:backgroundTint="@color/colorGrayOpaque50"
+                        android:paddingStart="@dimen/dimen_20dp"
+                        android:paddingTop="@dimen/dimen_6dp"
+                        android:paddingEnd="@dimen/dimen_20dp"
+                        android:paddingBottom="@dimen/dimen_6dp"
+                        android:text="@string/read_more"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_normal"
+                        app:fontFamily="@font/roboto_regular" />
+
+                </LinearLayout>
+
+
+                <!--  Overall Rating  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimen_16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/review"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_large" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20dp"
+                        android:layout_marginBottom="@dimen/dimen_10dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.42"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvRating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/text_size_36sp"
+                                tools:text="4.5" />
+
+                            <!--  Rating  -->
+                            <androidx.appcompat.widget.AppCompatRatingBar
+                                android:id="@+id/ratingBar"
+                                style="@style/Widget.AppCompat.RatingBar.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_8dp"
+                                android:isIndicator="true"
+                                android:progressBackgroundTint="#000"
+                                android:rating="3" />
+
+                            <!--  Total people attended  -->
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/atvTotalPersonAttended"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:drawableStart="@drawable/ic_user_gray_small"
+                                android:drawablePadding="@dimen/dimen_5dp"
+                                android:gravity="center"
+                                android:textColor="@color/colorGrayText"
+                                android:textSize="@dimen/text_size_12sp"
+                                app:fontFamily="@font/roboto_regular"
+                                tools:text="1000 total" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.58"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.15"
+                                    android:gravity="center"
+                                    android:text="5"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/text_size_18sp"
+                                    app:fontFamily="@font/roboto_regular" />
+
+                                <ProgressBar
+                                    android:id="@+id/ratingBar5Star"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.55"
+                                    android:max="10"
+                                    android:progress="10"
+                                    android:progressTint="@color/colorGreen" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/atv5RatingCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.3"
+                                    android:paddingStart="@dimen/dimen_12dp"
+                                    android:paddingEnd="@dimen/dimen_0dp"
+                                    android:textColor="@color/colorGrayText"
+                                    android:textSize="@dimen/text_size_11sp"
+                                    app:fontFamily="@font/roboto_regular"
+                                    tools:text="5000" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.15"
+                                    android:gravity="center"
+                                    android:text="4"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/text_size_18sp"
+                                    app:fontFamily="@font/roboto_regular" />
+
+                                <ProgressBar
+                                    android:id="@+id/ratingBar4Star"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.55"
+                                    android:max="10"
+                                    android:progress="4"
+                                    android:progressTint="@color/colorGreen" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/atv4RatingCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.3"
+                                    android:paddingStart="@dimen/dimen_12dp"
+                                    android:paddingEnd="@dimen/dimen_0dp"
+                                    android:textColor="@color/colorGrayText"
+                                    android:textSize="@dimen/text_size_11sp"
+                                    app:fontFamily="@font/roboto_regular"
+                                    tools:text="5000" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.15"
+                                    android:gravity="center"
+                                    android:text="3"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/text_size_18sp"
+                                    app:fontFamily="@font/roboto_regular" />
+
+                                <ProgressBar
+                                    android:id="@+id/ratingBar3Star"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.55"
+                                    android:max="10"
+                                    android:progress="1"
+                                    android:progressTint="@color/colorGreen" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/atv3RatingCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.3"
+                                    android:paddingStart="@dimen/dimen_12dp"
+                                    android:paddingEnd="@dimen/dimen_0dp"
+                                    android:textColor="@color/colorGrayText"
+                                    android:textSize="@dimen/text_size_11sp"
+                                    app:fontFamily="@font/roboto_regular"
+                                    tools:text="5000" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.15"
+                                    android:gravity="center"
+                                    android:text="2"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/text_size_18sp"
+                                    app:fontFamily="@font/roboto_regular" />
+
+                                <ProgressBar
+                                    android:id="@+id/ratingBar2Star"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.55"
+                                    android:max="10"
+                                    android:progress="0"
+                                    android:progressTint="@color/colorGreen" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/atv2RatingCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.3"
+                                    android:paddingStart="@dimen/dimen_12dp"
+                                    android:paddingEnd="@dimen/dimen_0dp"
+                                    android:textColor="@color/colorGrayText"
+                                    android:textSize="@dimen/text_size_11sp"
+                                    app:fontFamily="@font/roboto_regular"
+                                    tools:text="5000" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimen_5dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:weightSum="1">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.15"
+                                    android:gravity="center"
+                                    android:text="1"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="@dimen/text_size_18sp"
+                                    app:fontFamily="@font/roboto_regular" />
+
+                                <ProgressBar
+                                    android:id="@+id/ratingBar1Star"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.55"
+                                    android:max="10"
+                                    android:progress="6"
+                                    android:progressTint="@color/colorGreen" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/atv1RatingCount"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.3"
+                                    android:paddingStart="@dimen/dimen_12dp"
+                                    android:paddingEnd="@dimen/dimen_0dp"
+                                    android:textColor="@color/colorGrayText"
+                                    android:textSize="@dimen/text_size_11sp"
+                                    app:fontFamily="@font/roboto_regular"
+                                    tools:text="5000" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!--  Ratings  -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvReviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:background="@color/colorWhite"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/list_item_rating_reviews" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/llBottomOptions"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorLightGray"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <RelativeLayout
+                android:id="@+id/rlChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="0.5dp"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/dimen_12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_4dp"
+                    app:srcCompat="@drawable/ic_chat_green" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelChat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12dp"
+                    android:layout_toEndOf="@id/aivChat"
+                    android:text="@string/chat"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_small"
+                    app:fontFamily="@font/roboto_regular" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvChatRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/atvLabelChat"
+                    android:layout_alignStart="@id/atvLabelChat"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_large"
+                    tools:text="Rs 24/min" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rlCall"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="0.5dp"
+                android:background="@color/colorPrimary"
+                android:padding="@dimen/dimen_12dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/aivCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_4dp"
+                    app:srcCompat="@drawable/ic_call_red" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_12dp"
+                    android:layout_toEndOf="@id/aivCall"
+                    android:text="@string/call"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_small"
+                    app:fontFamily="@font/roboto_regular" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvCallRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/atvLabelCall"
+                    android:layout_alignStart="@id/atvLabelCall"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text_size_large"
+                    tools:text="Rs 24/min" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <include layout="@layout/layout_progressbar"
+            android:visibility="invisible"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.myastrotell.ui.astrologynews.AstrologyNewsActivity">
+
+
+    <include
+        android:id="@+id/rlHeader"
+        layout="@layout/layout_toolbar_primary" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        style="@style/NewsTabStyle"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_35dp"
+        android:layout_marginStart="@dimen/dimen_14dp"
+        android:layout_marginTop="@dimen/dimen_14dp"
+        android:layout_marginEnd="@dimen/dimen_14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+
+    <View
+        android:id="@+id/viewDivider"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_marginTop="@dimen/dimen_14dp"
+        android:alpha="0.4"
+        android:background="@color/colorGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpAstrologyNews"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewDivider" />
+
+
+    <include
+        layout="@layout/layout_progressbar"
+        android:visibility="invisible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

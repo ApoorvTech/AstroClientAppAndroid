@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:background="@drawable/shape_rect_light_gray_corner_5dp"
+        android:backgroundTint="@color/colorWhite"
+        android:elevation="@dimen/dimen_2dp"
+        android:padding="@dimen/dimen_4dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/dimen_12dp"
+            app:srcCompat="@drawable/ic_cancel_black" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelVoucherCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/aivCancel"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:text="@string/voucher_code"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_bold" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/aetVoucherCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/atvLabelVoucherCode"
+            android:layout_marginStart="@dimen/dimen_8dp"
+            android:layout_marginTop="@dimen/dimen_28dp"
+            android:layout_toStartOf="@+id/atvApplyVoucher"
+            android:background="@drawable/drawable_enter_vouch_code"
+            android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"
+            android:hint="@string/enter_voucher_code"
+            android:imeOptions="actionDone"
+            android:padding="@dimen/dimen_16dp"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvApplyVoucher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/aetVoucherCode"
+            android:layout_alignTop="@id/aetVoucherCode"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dimen_8dp"
+            android:background="@drawable/drawable_apply_voucher"
+            android:paddingStart="@dimen/dimen_20dp"
+            android:paddingTop="@dimen/dimen_16dp"
+            android:paddingEnd="@dimen/dimen_20dp"
+            android:paddingBottom="@dimen/dimen_16dp"
+            android:text="@string/apply"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_medium" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvLabelError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/aetVoucherCode"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:text="@string/enter_voucher_code"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/text_size_12sp"
+            android:visibility="invisible"
+            app:fontFamily="@font/roboto_regular" />
+
+    </RelativeLayout>
+
+</layout>

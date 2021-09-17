@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.myastrotell.ui.support.SupportActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <ScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="ifContentScrolls"
+            app:layout_constraintBottom_toTopOf="@+id/atvSubmit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/dimen_16dp"
+                android:paddingTop="@dimen/dimen_16dp"
+                android:paddingEnd="@dimen/dimen_16dp"
+                android:paddingBottom="@dimen/dimen_25dp">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_support_placeholder_small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlHeader" />
+
+
+                <!--  Name*  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_12dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_name"
+                        android:hint="@string/name_mandatory"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:maxLength="100"
+                        android:nextFocusDown="@+id/aetEmail"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Mobile*  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/aetMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/atvCountryCode"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_numbers"
+                        android:enabled="false"
+                        android:hint="@string/mobile_number_mandatory"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Email  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/aetEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/email_id"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="50"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Concerns  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelConcerns"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_28dp"
+                    android:text="@string/concerns_mandatory"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_13sp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aetConcern"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:background="@drawable/shape_rect_stroke_gray_corners_6dp"
+                    android:digits="@string/digits_alphanumeric_multiline"
+                    android:gravity="start|top"
+                    android:hint="@string/comments"
+                    android:inputType="textMultiLine"
+                    android:maxHeight="@dimen/dimen_150dp"
+                    android:maxLength="400"
+                    android:minHeight="@dimen/dimen_65dp"
+                    android:padding="@dimen/dimen_12dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_medium" />
+
+
+                <!-- version -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvAppVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp"
+                    app:fontFamily="@font/roboto_regular"
+                    tools:text="Version: 1.0.0" />
+
+
+                <!-- Website -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvWebsiteLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/website"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_12sp"
+                        app:fontFamily="@font/roboto_medium" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvWebsiteValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:textColor="@color/colorBlue"
+                        android:textSize="@dimen/text_size_12sp"
+                        app:fontFamily="@font/roboto_medium"
+                        tools:text="" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvSubmit"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/dimen_16dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_large"
+            android:gravity="center"
+            android:text="@string/submit"
+            app:fontFamily="@font/roboto_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_70dp"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:layout_marginEnd="@dimen/dimen_16dp"
+        android:layout_marginBottom="@dimen/dimen_8dp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/drawable_chat_bubble_my_message"
+            android:paddingStart="@dimen/dimen_20dp"
+            android:paddingTop="@dimen/dimen_15dp"
+            android:paddingEnd="@dimen/dimen_20dp"
+            android:paddingBottom="@dimen/dimen_15dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_regular"
+            tools:text="@string/app_name" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/atvMessage"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dimen_8dp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_12sp"
+            app:fontFamily="@font/roboto_regular"
+            tools:text="05:00 pm" />
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.myastrotell.ui.addeditaddress.AddEditAddressActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsvMain"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_5dp"
+                android:paddingBottom="@dimen/dimen_16dp">
+
+                <!--  Name  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/name_mandatory"
+                        android:digits="@string/digits_name"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapWords"
+                        android:maxLength="100"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Number  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelMobileNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/mobile_number_mandatory"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCountryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="1234567890+"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:text="+91"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/aetNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/atvCountryCode"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_numbers"
+                        android:enabled="false"
+                        android:hint="@string/mobile_number"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/dimen_8dp"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingEnd="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_below="@id/aetNumber"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </RelativeLayout>
+
+
+                <!--  Alternate Number  -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_35dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvAlternateCountryCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="1234567890+"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:text="+91"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/aetAlternateNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/atvAlternateCountryCode"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_numbers"
+                        android:hint="@string/alternate_mobile_number"
+                        android:imeOptions="actionNext"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/dimen_8dp"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingEnd="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_below="@id/aetAlternateNumber"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </RelativeLayout>
+
+
+                <!--  Flat Number  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetFlatNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM,./-1234567890"
+                        android:hint="@string/flat_no_mandatory"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Locality  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetLocality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/locality_mandatory"
+                        android:digits="@string/digits_characters"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Landmark  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetLandmark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/landmark"
+                        android:imeOptions="actionNext"
+                        android:digits="@string/digits_characters"
+                        android:inputType="textCapWords"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  State  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/state_mandatory"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:digits="@string/digits_characters_only"
+                        android:longClickable="false"
+                        android:maxLength="100"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  City  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/city_mandatory"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:digits="@string/digits_characters_only"
+                        android:longClickable="false"
+                        android:maxLength="100"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Country  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/country_mandatory"
+                        android:digits="@string/digits_characters_only"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapWords"
+                        android:longClickable="false"
+                        android:maxLength="100"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Pincode  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/aetPinCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_numbers"
+                        android:hint="@string/pincode_mandatory"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:alpha="0.5"
+                        android:background="@color/colorGray" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Submit  -->
+                <Button
+                    android:id="@+id/btnSubmit"
+                    style="@style/PrimaryButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_50dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_marginBottom="@dimen/dimen_10dp"
+                    android:text="@string/submit" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

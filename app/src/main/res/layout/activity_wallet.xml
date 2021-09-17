@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightGray"
+        tools:context="com.myastrotell.ui.wallet.WalletActivity">
+
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/atvProceed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rlHeader">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelAvailableBalance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:drawableStart="@drawable/ic_wallet_round"
+                    android:drawablePadding="@dimen/dimen_14dp"
+                    android:gravity="center"
+                    android:text="@string/available_balance"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvBalance"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_toEndOf="@id/atvLabelAvailableBalance"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_large"
+                    app:fontFamily="@font/roboto_bold"
+                    app:layout_constraintBottom_toBottomOf="@id/atvLabelAvailableBalance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/atvLabelAvailableBalance"
+                    app:layout_constraintTop_toTopOf="@id/atvLabelAvailableBalance"
+                    tools:text="Rs. 1000.00" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvOffers"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:layout_marginBottom="@dimen/dimen_20dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="@dimen/dimen_6dp"
+                    android:paddingEnd="@dimen/dimen_6dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvLabelAvailableBalance"
+                    app:spanCount="2"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/list_item_wallet_offers" />
+
+
+                <!--  Enter Amount  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_18dp"
+                    android:text="@string/amount"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_13sp"
+                    android:visibility="visible"
+                    app:fontFamily="@font/roboto_regular"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvOffers" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rlEnterAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/atvLabelAmount">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCurrency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:text="@string/currency"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/aetAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/atvCurrency"
+                        android:background="@android:color/transparent"
+                        android:digits="@string/digits_numbers"
+                        android:hint="@string/enter_amount"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:paddingStart="@dimen/dimen_8dp"
+                        android:paddingTop="@dimen/dimen_10dp"
+                        android:paddingEnd="@dimen/dimen_10dp"
+                        android:paddingBottom="@dimen/dimen_10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/text_size_18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimen_1dp"
+                        android:layout_below="@id/aetAmount"
+                        android:background="@drawable/drawable_divider" />
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_6dp"
+                    android:text="@string/amount_should_be_in_multiples_of_50"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/text_size_13sp"
+                    android:visibility="invisible"
+                    app:fontFamily="@font/roboto_regular"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlEnterAmount" />
+
+
+                <!--  Apply Coupon  -->
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvApplyVoucher"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_45dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:layout_marginBottom="@dimen/dimen_40dp"
+                    android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+                    android:drawableStart="@drawable/ic_apply_coupon"
+                    android:drawableEnd="@drawable/ic_arrow_forward_dark"
+                    android:drawablePadding="@dimen/dimen_14dp"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimen_16dp"
+                    android:text="@string/apply_voucher_code"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_large"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlEnterAmount" />
+
+
+                <!--  Applied Coupon  -->
+                <RelativeLayout
+                    android:id="@+id/rlAppliedCoupon"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_45dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp"
+                    android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+                    android:backgroundTint="@color/colorPrimaryOpaque10"
+                    android:padding="@dimen/dimen_5dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlEnterAmount">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="@dimen/dimen_10dp"
+                        android:tint="@color/colorPrimary"
+                        app:srcCompat="@drawable/ic_apply_coupon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCouponTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dimen_5dp"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:layout_marginEnd="@dimen/dimen_5dp"
+                        android:layout_toStartOf="@+id/aivRemoveCoupon"
+                        android:layout_toEndOf="@id/aivIcon"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_16sp"
+                        tools:text="Voucher Code" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/atvCouponMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/atvCouponTitle"
+                        android:layout_alignStart="@id/atvCouponTitle"
+                        android:layout_alignEnd="@id/atvCouponTitle"
+                        android:layout_marginTop="@dimen/dimen_4dp"
+                        android:layout_marginBottom="@dimen/dimen_10dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_small"
+                        app:fontFamily="@font/roboto_regular"
+                        tools:text="Rs 5 Cashback in wallet after recharge." />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aivRemoveCoupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:padding="@dimen/dimen_5dp"
+                        app:srcCompat="@drawable/ic_cross_orange" />
+
+                </RelativeLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProceed"
+            style="@style/PrimaryButtonStyle"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/dimen_18dp"
+            android:text="@string/proceed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

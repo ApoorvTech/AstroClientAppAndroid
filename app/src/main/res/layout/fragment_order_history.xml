@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/layout_no_data_found"
+            android:visibility="invisible" />
+
+        <FrameLayout
+            android:id="@+id/flDeleteHistory"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvDeleteHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_18dp"
+                android:layout_marginTop="@dimen/dimen_2dp"
+                android:layout_marginEnd="@dimen/dimen_18dp"
+                android:layout_marginBottom="@dimen/dimen_8dp"
+                android:background="@drawable/shape_rect_light_gray_corner_5dp"
+                android:backgroundTint="@color/colorClearOrderHistory"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                android:text="@string/delete_all_orders"
+                android:textColor="@color/colorRed"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOrderHistory"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_0dp"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/dimen_10dp"
+            android:paddingTop="@dimen/dimen_5dp"
+            android:paddingEnd="@dimen/dimen_10dp"
+            android:paddingBottom="@dimen/dimen_10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/flDeleteHistory"
+            tools:listitem="@layout/list_item_order_history" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

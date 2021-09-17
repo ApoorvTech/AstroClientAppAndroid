@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlack">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo_astrology_header" />
+
+
+        <LinearLayout
+            android:id="@+id/llDetails"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdvImage"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_100dp"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:scaleType="centerCrop"
+                app:actualImageScaleType="centerCrop"
+                app:placeholderImage="@drawable/shape_circle_indicator_unselected"
+                app:roundAsCircle="true" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvAstrologerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_24sp"
+                app:fontFamily="@font/roboto_regular"
+                tools:text="Dr. Ram Naresh Tripathi" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_45dp"
+                android:drawableTop="@drawable/ic_chat_white"
+                android:text="@string/please_accept_chat_request"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_16sp"
+                app:fontFamily="@font/roboto_regular" />
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvReject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:drawableTop="@drawable/ic_reject"
+            android:drawablePadding="@dimen/dimen_8dp"
+            android:gravity="center"
+            android:padding="@dimen/dimen_5dp"
+            android:text="@string/reject"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_16sp"
+            android:visibility="gone"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/atvAccept"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llDetails" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:drawableTop="@drawable/ic_accept"
+            android:drawablePadding="@dimen/dimen_8dp"
+            android:gravity="center"
+            android:padding="@dimen/dimen_5dp"
+            android:text="@string/accept"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_16sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/atvReject"
+            app:layout_constraintTop_toBottomOf="@id/llDetails" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

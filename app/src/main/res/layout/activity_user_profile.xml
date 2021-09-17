@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.profile.UserProfileActivity">
+
+        <include
+            android:id="@+id/rlHeader"
+            layout="@layout/layout_toolbar_primary" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlHeader">
+
+
+            <LinearLayout
+                android:id="@+id/llMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_16dp">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/sdvImage"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_80dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    app:placeholderImageScaleType="centerCrop"
+                    android:scaleType="centerCrop"
+                    app:roundAsCircle="true"
+                    app:placeholderImage="@drawable/ic_placeholder_profile" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelFirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/first_name"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvFirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/first_name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:text="@string/last_name"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/last_name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/mobile_number"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/mobile_number"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+                <!-- email -->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/email_id"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/email_id"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <!-- email end-->
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:text="@string/gender"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/gender"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelDob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/date_of_birth"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvDob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/date_of_birth"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelTob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:text="@string/time_of_birth"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvTob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/time_of_birth"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelPob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/place_of_birth"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvPob"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/place_of_birth"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/state"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/state"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:text="@string/city"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/city"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:text="@string/country"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/country"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelMaritalStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:text="@string/marital_status"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvMaritalStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/marital_status"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvLabelOccupation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:text="@string/occupation"
+                    android:textColor="@color/colorGrayText"
+                    android:textSize="@dimen/text_size_12sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/atvOccupation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    tools:text="@string/occupation"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_18sp" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+</layout>

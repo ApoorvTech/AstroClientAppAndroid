@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        tools:context="com.myastrotell.ui.astromall.productdetail.ViewProductImageActivity">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpImages"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.myastrotell.utils.CircleIndicator
+            android:id="@+id/ciImages"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_20dp"
+            android:padding="@dimen/dimen_10dp"
+            app:ci_height="@dimen/dimen_10dp"
+            app:ci_width="@dimen/dimen_10dp"
+            app:ci_drawable="@drawable/drawable_product_image_indicator_selected"
+            app:ci_drawable_unselected="@drawable/drawable_product_image_indicator_unselected"
+            app:layout_constraintBottom_toBottomOf="@id/vpImages"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_5dp"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_cancel_black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

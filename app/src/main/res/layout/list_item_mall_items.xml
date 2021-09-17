@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_2dp">
+
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sdvImage"
+            android:layout_width="@dimen/dimen_110dp"
+            android:layout_height="@dimen/dimen_110dp"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:scaleType="fitCenter"
+            app:actualImageScaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholderImage="@drawable/shape_rect_gray_corners_5dp"
+            app:roundedCornerRadius="@dimen/dimen_5dp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginEnd="@dimen/dimen_12dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/sdvImage"
+            app:layout_constraintTop_toTopOf="@id/sdvImage"
+            tools:text="@string/app_name" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductDetails"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_10dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_normal"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvProductName"
+            app:layout_constraintStart_toStartOf="@id/atvProductName"
+            app:layout_constraintTop_toBottomOf="@id/atvProductName"
+            tools:text="@string/dummy_Description" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvProductPrice"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/dimen_2dp"
+            android:paddingBottom="@dimen/dimen_2dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@id/sdvImage"
+            app:layout_constraintEnd_toStartOf="@+id/atvAddToCart"
+            app:layout_constraintStart_toStartOf="@id/atvProductName"
+            tools:text="Rs 100/piece" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimen_4dp"
+            android:text="@string/add_to_cart"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/text_size_small"
+            app:layout_constraintBottom_toBottomOf="@id/atvProductPrice"
+            app:layout_constraintEnd_toEndOf="@id/atvProductName" />
+
+
+        <View
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="@dimen/dimen_1dp"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:alpha="0.5"
+            android:background="@color/colorGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/atvProductPrice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

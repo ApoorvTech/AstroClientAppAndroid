@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightGray"
+        tools:context="com.myastrotell.ui.callreview.CallReviewActivity">
+
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_8dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:padding="@dimen/dimen_10dp"
+                app:srcCompat="@drawable/ic_back_white" />
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdvImage"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_toEndOf="@id/aivBack"
+                android:scaleType="centerCrop"
+                app:placeholderImage="@drawable/ic_user_placeholder_chat"
+                app:placeholderImageScaleType="centerCrop" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/atvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dimen_15dp"
+                android:layout_toEndOf="@id/sdvImage"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text_size_16sp"
+                tools:text="Dr Ram Naresh Tripathy" />
+
+        </RelativeLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?android:actionBarSize"
+            android:overScrollMode="ifContentScrolls">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible">
+
+                <!--Client Details Start-->
+                <View
+                    android:id="@+id/clientCardBackgroundView"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintBottom_toBottomOf="@id/clientCardEndView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/clientProfileTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/client_profile"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/clientNameTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_14dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/name_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientProfileTitleTV" />
+
+                <TextView
+                    android:id="@+id/clientNameValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/clientNameTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/clientNameTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/clientNameTitleTV"
+                    tools:text="Naveen Chandra" />
+
+                <TextView
+                    android:id="@+id/clientMobileTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/mobile_number_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientNameTitleTV" />
+
+                <TextView
+                    android:id="@+id/clientMobileValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/clientMobileTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/clientMobileTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/clientMobileTitleTV"
+                    tools:text="8851360214" />
+
+                <TextView
+                    android:id="@+id/clientDobTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/date_of_birth_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientMobileTitleTV" />
+
+                <TextView
+                    android:id="@+id/clientDobValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/clientDobTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/clientDobTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/clientDobTitleTV"
+                    tools:text="15 August 1995, 12:00 AM" />
+
+                <TextView
+                    android:id="@+id/clientPobTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/place_of_birth_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientDobTitleTV" />
+
+                <TextView
+                    android:id="@+id/clientPobValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/clientPobTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/clientPobTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/clientPobTitleTV"
+                    tools:text="Kurukshetra, India" />
+
+                <TextView
+                    android:id="@+id/clientMartialTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/marital_status_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientPobTitleTV" />
+
+                <TextView
+                    android:id="@+id/clientMaritalValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/clientMartialTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/clientMartialTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/clientMartialTitleTV"
+                    tools:text="Single" />
+
+                <TextView
+                    android:id="@+id/clientOccupationTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/occupation_"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientMartialTitleTV" />
+
+                <TextView
+                    android:id="@+id/clientOccupationValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/clientOccupationTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/clientOccupationTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/clientOccupationTitleTV"
+                    tools:text="Visualizer" />
+
+                <View
+                    android:id="@+id/clientCardEndView"
+                    android:layout_width="@dimen/dimen_1dp"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientOccupationTitleTV" />
+
+
+                <!--Client Details End-->
+                <View
+                    android:id="@+id/astrologerCardBackgroundView"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="@dimen/dimen_0dp"
+                    android:layout_marginTop="@dimen/dimen_16dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintBottom_toBottomOf="@id/scheduleCardEndView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clientCardBackgroundView" />
+
+                <TextView
+                    android:id="@+id/scheduleTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/appointment_schedule"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/astrologerCardBackgroundView" />
+
+                <TextView
+                    android:id="@+id/expertNameTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_14dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Expert Name:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scheduleTitleTV" />
+
+                <TextView
+                    android:id="@+id/expertNameValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/expertNameTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/expertNameTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/expertNameTitleTV"
+                    tools:text="Dr Ram Naresh Tripathi" />
+
+                <TextView
+                    android:id="@+id/dateTimeTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Date &amp; time:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/expertNameTitleTV" />
+
+                <TextView
+                    android:id="@+id/dateTimeValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/dateTimeTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/dateTimeTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/dateTimeTitleTV"
+                    tools:text=" 15 August 2020, 10:00 AM" />
+
+                <TextView
+                    android:id="@+id/durationTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Duration:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dateTimeTitleTV" />
+
+                <TextView
+                    android:id="@+id/durationValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/durationTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/durationTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/durationTitleTV"
+                    tools:text="4 minutes" />
+
+                <TextView
+                    android:id="@+id/priceTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Price: "
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/durationTitleTV" />
+
+                <TextView
+                    android:id="@+id/priceValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/priceTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/priceTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/priceTitleTV"
+                    tools:text="Rs 12.0/minute" />
+
+                <TextView
+                    android:id="@+id/deductionTitleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_5dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Deduction:"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/priceTitleTV" />
+
+                <TextView
+                    android:id="@+id/deductionValueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen_3dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="8sp"
+                    android:textColor="@color/colorLightGreyText"
+                    android:textSize="@dimen/text_size_16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/deductionTitleTV"
+                    app:layout_constraintStart_toEndOf="@id/deductionTitleTV"
+                    app:layout_constraintTop_toTopOf="@id/deductionTitleTV"
+                    tools:text="D36.0" />
+
+                <View
+                    android:id="@+id/scheduleCardEndView"
+                    android:layout_width="@dimen/dimen_1dp"
+                    android:layout_height="@dimen/dimen_1dp"
+                    android:layout_marginTop="@dimen/dimen_40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/deductionValueTV" />
+
+                <include
+                    android:id="@+id/cvReview"
+                    layout="@layout/layout_submit_reviews"
+                    android:layout_width="@dimen/dimen_0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/scheduleCardEndView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </FrameLayout>
+</layout>

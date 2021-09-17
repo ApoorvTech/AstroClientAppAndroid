@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_8dp"
+        android:background="@drawable/shape_rect_stroke_gray_corners_6dp"
+        android:padding="@dimen/dimen_12dp">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aivSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/actionBarItemBackground"
+            android:padding="@dimen/dimen_6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_unselected_radio_button" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvName"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            android:layout_marginTop="@dimen/dimen_4dp"
+            android:layout_marginEnd="@dimen/dimen_5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp"
+            app:layout_constraintEnd_toStartOf="@+id/llOptions"
+            app:layout_constraintStart_toEndOf="@id/aivSelected"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/atvAddressDetails"
+            android:layout_width="@dimen/dimen_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_12dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:lineSpacingExtra="8dp"
+            android:textColor="@color/colorGrayText"
+            android:textSize="@dimen/text_size_14sp"
+            app:fontFamily="@font/roboto_regular"
+            app:layout_constraintEnd_toEndOf="@id/atvName"
+            app:layout_constraintStart_toEndOf="@id/aivSelected"
+            app:layout_constraintTop_toBottomOf="@id/atvName"
+            tools:text="@string/dummy_Description" />
+
+
+        <LinearLayout
+            android:id="@+id/llOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aivEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dimen_4dp"
+                android:background="?android:attr/actionBarItemBackground"
+                android:padding="@dimen/dimen_8dp"
+                app:srcCompat="@drawable/ic_edit" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aivDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/actionBarItemBackground"
+                android:padding="@dimen/dimen_8dp"
+                app:srcCompat="@drawable/ic_delete" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

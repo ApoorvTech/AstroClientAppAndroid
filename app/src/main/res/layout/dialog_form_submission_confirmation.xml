@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_40dp"
+    android:background="@drawable/shape_rect_stroke_light_gray_corners_8dp"
+    android:backgroundTint="@color/colorWhite"
+    android:elevation="@dimen/dimen_2dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvLabelTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_16dp"
+        android:gravity="center"
+        android:text="@string/please_confirm_your_details"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_size_18sp" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:layout_below="@id/atvLabelTitle"
+        android:alpha="0.6"
+        android:background="@color/colorGray" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvLabelDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelTitle"
+        android:layout_marginStart="@dimen/dimen_22dp"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:text="@string/date_of_birth_"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_size_18sp"
+        app:fontFamily="@font/roboto_regular" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelTitle"
+        android:layout_alignTop="@id/atvLabelDOB"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_toEndOf="@id/atvLabelDOB"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/colorGrayText"
+        android:textSize="@dimen/text_size_18sp"
+        app:fontFamily="@font/roboto_regular"
+        tools:text="15 August 2020" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvLabelTOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelDOB"
+        android:layout_marginStart="@dimen/dimen_22dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:text="@string/time_of_birth_"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_size_18sp"
+        app:fontFamily="@font/roboto_regular" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvTOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelTitle"
+        android:layout_alignTop="@id/atvLabelTOB"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_toEndOf="@id/atvLabelTOB"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/colorGrayText"
+        android:textSize="@dimen/text_size_18sp"
+        app:fontFamily="@font/roboto_regular"
+        tools:text="12:30 AM" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvLabelPOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelTOB"
+        android:layout_marginStart="@dimen/dimen_22dp"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:text="@string/place_of_birth_"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text_size_18sp"
+        app:fontFamily="@font/roboto_regular" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvPOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelTitle"
+        android:layout_alignTop="@id/atvLabelPOB"
+        android:layout_marginStart="@dimen/dimen_8dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_toEndOf="@id/atvLabelPOB"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/colorGrayText"
+        android:textSize="@dimen/text_size_18sp"
+        app:fontFamily="@font/roboto_regular"
+        tools:text="New Delhi, India" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvPositive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelPOB"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dimen_28dp"
+        android:layout_marginEnd="@dimen/dimen_22dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="end"
+        android:minWidth="@dimen/dimen_50dp"
+        android:padding="@dimen/dimen_10dp"
+        android:text="@string/confirm"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:textAllCaps="true"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/text_size_medium"
+        app:fontFamily="@font/roboto_bold" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/atvNegative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/atvLabelPOB"
+        android:layout_marginTop="@dimen/dimen_28dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_toStartOf="@+id/atvPositive"
+        android:layout_marginBottom="@dimen/dimen_8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="start"
+        android:minWidth="@dimen/dimen_50dp"
+        android:padding="@dimen/dimen_10dp"
+        android:text="@string/cancel"
+        android:textAllCaps="true"
+        android:textColor="@color/colorBlue"
+        android:textSize="@dimen/text_size_medium"
+        android:visibility="visible"
+        app:fontFamily="@font/roboto_bold" />
+
+</RelativeLayout>
