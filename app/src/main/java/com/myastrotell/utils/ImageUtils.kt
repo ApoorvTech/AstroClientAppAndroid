@@ -3,16 +3,20 @@ package com.myastrotell.utils
 import android.Manifest
 import android.app.Activity
 import android.content.ComponentName
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
+import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import com.myastrotell.R
+import java.io.BufferedInputStream
 import java.io.File
+import java.io.FileInputStream
 
 
 object ImageUtils {
@@ -151,6 +155,45 @@ object ImageUtils {
             val intent = getGalleryIntent()
             if (intent.resolveActivity(context.packageManager) != null) {
                 context.startActivityForResult(intent, REQUEST_PICK_GALLERY_IMAGE)
+            }
+        }
+    }
+
+
+    private fun copyFileToDownloads(context: Context, file: File, name: String? = null): Uri? {
+        var fileName = name
+        if (fileName.isNullOrBlank()) {
+            fileName = "IMG_${System.currentTimeMillis()}.png"
+
+        }
+        val resolver = context.contentResolver
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            val contentValues = ContentValues().apply {
+                put(
+                    MediaStore.MediaColumns.DISPLAY_NAME,
+                    fileName
+                )
+                put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
+                put(MediaStore.MediaColumns.SIZE, file.length() / 1024)
+            }
+            resolver.insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, contentValues)
+        } else {
+            val DOWNLOAD_DIR =
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+            val authority = "${context.packageName}.provider"
+            val destinyFile = File(DOWNLOAD_DIR, fileName)
+            FileProvider.getUriForFile(context, authority, destinyFile)
+        }?.also { downloadedUri ->
+            resolver.openOutputStream(downloadedUri).use { outputStream ->
+                val brr = ByteArray(1024)
+                var len: Int
+                val bufferedInputStream =
+                    BufferedInputStream(FileInputStream(file.absoluteFile))
+                while ((bufferedInputStream.read(brr, 0, brr.size).also { len = it }) != -1) {
+                    outputStream?.write(brr, 0, len)
+                }
+                outputStream?.flush()
+                bufferedInputStream.close()
             }
         }
     }

@@ -19,10 +19,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="@color/colorLightGray"
+            android:background="@color/colorWhite"
             android:clickable="true"
             android:focusable="true">
 
+            <RelativeLayout
+                android:layout_width="166dp"
+                android:layout_height="166dp"
+                android:background="@drawable/fadeimageicon"
+
+         android:layout_centerInParent="true"></RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rlTop"
@@ -119,6 +125,7 @@
             </RelativeLayout>
 
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvSideMenu"
                 android:layout_width="match_parent"
@@ -127,7 +134,7 @@
                 android:layout_below="@id/rlTop"
                 android:layout_marginTop="@dimen/dimen_16dp"
                 android:layout_marginBottom="@dimen/dimen_2dp"
-                android:background="@color/colorWhite"
+
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/list_item_side_menu_options" />
 

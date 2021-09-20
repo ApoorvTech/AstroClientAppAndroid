@@ -218,7 +218,31 @@
                     app:srcCompat="@drawable/ic_arrow_forward_dark" />
 
 
+                <ImageView
+                    android:layout_marginEnd="44dp"
 
+                    android:id="@+id/speakout"
+                    android:layout_width="@dimen/dimen_36dp"
+                    android:layout_height="@dimen/dimen_36dp"
+                    android:src="@drawable/speak"
+                    app:layout_constraintBottom_toBottomOf="@id/atvLabelProductDetail"
+                    app:layout_constraintEnd_toEndOf="@id/atvLabelProductDetail"
+                    app:layout_constraintTop_toTopOf="@id/atvLabelProductDetail"
+                    tools:ignore="MissingConstraints"></ImageView>
+
+                <ImageView
+                    android:layout_marginEnd="44dp"
+
+                    app:layout_constraintBottom_toBottomOf="@id/atvLabelProductDetail"
+                    app:layout_constraintEnd_toEndOf="@id/atvLabelProductDetail"
+                    app:layout_constraintTop_toTopOf="@id/atvLabelProductDetail"
+                    android:id="@+id/speak"
+                    android:layout_width="@dimen/dimen_36dp"
+                    android:layout_height="@dimen/dimen_36dp"
+                    android:src="@drawable/speakout"
+
+                    android:visibility="invisible"
+                    tools:ignore="MissingConstraints" />
 
 
                 <WebView

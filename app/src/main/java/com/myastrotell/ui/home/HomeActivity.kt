@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -42,6 +43,7 @@ import com.myastrotell.ui.notifications.NotificationsActivity
 import com.myastrotell.ui.orderhistory.OrderHistoryActivity
 import com.myastrotell.ui.profile.UserProfileActivity
 import com.myastrotell.ui.support.SupportActivity
+import com.myastrotell.ui.termsandpolicy.TermsAndPolicyActivity
 import com.myastrotell.ui.wallet.WalletActivity
 import com.myastrotell.ui.wallet.transationhistory.TransactionHistoryActivity
 import com.myastrotell.utils.AppUtils
@@ -187,6 +189,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), View.On
                 }
 
             }
+
 
             if (isUserLoggedIn()) {
                 viewModel?.getProfileDetails()
@@ -351,11 +354,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), View.On
         mDrawerToggle.syncState()
 
         // setting sideMenu width to match parent
-        val displayMetrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(displayMetrics)
-        val params = rlMenu.layoutParams as DrawerLayout.LayoutParams
-        params.width = displayMetrics.widthPixels
-        rlMenu.layoutParams = params
+//        val displayMetrics = DisplayMetrics()
+//        windowManager.defaultDisplay.getMetrics(displayMetrics)
+//        val params = rlMenu.layoutParams as DrawerLayout.LayoutParams
+//        params.width = displayMetrics.widthPixels
+//        rlMenu.layoutParams = params
 
 
         // creating side menu list
@@ -373,7 +376,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), View.On
             sideMenuList.add(
                 1, SideMenuModel(getString(R.string.order_history), R.drawable.ic_time)
             )
-            sideMenuList.add(SideMenuModel(getString(R.string.logout), R.drawable.ic_logout))
+              sideMenuList.add(SideMenuModel("Terms Of Use", R.drawable.ic_baseline_branding_terms))
+              sideMenuList.add(SideMenuModel("Policy", R.drawable.ic_baseline_local_police))
+
+              sideMenuList.add(SideMenuModel(getString(R.string.logout), R.drawable.ic_logout))
         }
 
         // setting side menu adapter
@@ -420,13 +426,24 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), View.On
                 3 -> { // Rate Us
                     AppUtils.openAppInGooglePlayStore(this)
                 }
-
                 4 -> { // Share
                     shareApp()
 
                 }
+                5 -> { // Terms
+                    val intent = Intent(this, TermsAndPolicyActivity::class.java)
+                    intent.putExtra(AppConstants.KEY_DATA, getString(R.string.terms_of_use))
+                    startActivity(intent)
+                }
+                6 -> { // Policy
+                    val intent = Intent(this, TermsAndPolicyActivity::class.java)
+                    intent.putExtra(AppConstants.KEY_DATA, getString(R.string.privacy_policy))
+                    startActivity(intent)
+                }
 
-                5 -> { // Logout
+
+
+                7 -> { // Logout
                     AppAlertDialog(this,
                         R.drawable.ic_alert,
                         getString(R.string.logout),

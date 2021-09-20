@@ -271,6 +271,10 @@ interface ApiInterface {
     suspend fun submitSupportForm(@Body request: SubmitSupportFormRequest): BaseResponseModel<Any>
 
 
+    @POST(ApiEndPoints.APP_UPDATE)
+    suspend fun appUpdate(@Body request: AppUpdateRequest): BaseResponseModel<AppUpdateResponse>
+
+
 
     @GET(ApiEndPoints.GET_FIRST_RECHARGE + "/{msisdn}")
     suspend fun getRechargeDetails(@Path("msisdn") msisdn: String): BaseResponseModel<Boolean>

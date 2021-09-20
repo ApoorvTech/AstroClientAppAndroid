@@ -3,13 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorLightGray"
+        android:background="@color/colorWhite"
         tools:context="com.myastrotell.ui.dailyhoroscope.DailyHoroscopeActivity">
 
-
+        <RelativeLayout
+            android:layout_marginTop="22dp"
+            android:layout_width="333dp"
+            android:layout_height="333dp"
+            android:background="@drawable/fadeimageicon"
+          android:layout_centerInParent="true"
+            ></RelativeLayout>
         <include
             android:id="@+id/rlHeader"
             layout="@layout/layout_toolbar_primary" />
@@ -17,7 +23,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSunSigns"
-            android:layout_width="@dimen/dimen_0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="horizontal"
@@ -25,6 +31,7 @@
             android:paddingTop="@dimen/dimen_12dp"
             android:paddingEnd="@dimen/dimen_12dp"
             android:paddingBottom="@dimen/dimen_10dp"
+            android:layout_below="@+id/rlHeader"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,19 +41,41 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHoroscope"
-            android:layout_width="@dimen/dimen_0dp"
-            android:layout_height="@dimen/dimen_0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:clipToPadding="false"
             android:orientation="vertical"
             android:padding="@dimen/dimen_12dp"
+            android:layout_below="@+id/rvSunSigns"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rvSunSigns"
-            tools:listitem="@layout/list_item_daily_horoscope" />
+android:layout_marginBottom="88dp"
+            tools:listitem="@layout/list_item_daily_horoscope"
+           />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+   <RelativeLayout
+       android:id="@+id/rlgochat"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/dimen_66dp"
+android:background="@color/colorClearOrderHistory"
+       android:layout_alignBottom="@+id/rvHoroscope"
+       android:layout_alignParentBottom="true"
+    android:layout_marginLeft="@dimen/dimen_12dp"
+       android:layout_marginRight="@dimen/dimen_12dp"
+       >
+<TextView
+    android:justificationMode="inter_word"
+    android:layout_centerInParent="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/dimen_12dp"
+    android:layout_marginLeft="@dimen/dimen_12dp"
+    android:textSize="@dimen/dimen_12dp"
+    android:text="These predictions are based on your sun sign For a more personalized prediction,
+connect live with an Astrologer on chat."    ></TextView>
+   </RelativeLayout>
+
+    </RelativeLayout>
 
 </layout>

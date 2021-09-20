@@ -3,6 +3,8 @@ package com.myastrotell.ui.astrologerprofile
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.lifecycle.Observer
@@ -21,19 +23,19 @@ import com.myastrotell.dialogs.AppAlertDialog
 import com.myastrotell.pojo.response.astrlogerprofile.ReviewModel
 import com.myastrotell.ui.detailform.DetailsFormActivity
 import com.myastrotell.ui.wallet.WalletActivity
-import com.myastrotell.utils.AppUtils
-import com.myastrotell.utils.getViewModel
-import com.myastrotell.utils.gone
-import com.myastrotell.utils.visible
+import com.myastrotell.utils.*
 import kotlinx.android.synthetic.main.activity_astrologer_profile.*
 import kotlinx.android.synthetic.main.layout_progressbar.*
 import kotlinx.android.synthetic.main.layout_toolbar_primary.*
 import kotlinx.android.synthetic.main.layout_wallet_recharge_header.*
+import kotlinx.android.synthetic.main.list_item_daily_horoscope.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class AstrologerProfileActivity :
     BaseActivity<ActivityAstrologerProfileBinding, AstrologerProfileViewModel>(),
-    View.OnClickListener {
+    View.OnClickListener, TextToSpeech.OnInitListener {
 
     private lateinit var mReviewsAdapter: RatingReviewAdapter
     private lateinit var mReviewsList: ArrayList<ReviewModel>
@@ -43,7 +45,7 @@ class AstrologerProfileActivity :
     private var isAstrologerOnline: Boolean = false
 
     private var refreshAstrologersList: Boolean = false
-
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +59,9 @@ class AstrologerProfileActivity :
         }
 
         viewModel?.getAstrologersDetails()
+        tts = TextToSpeech(this, this)
+        val speakout = speakout!!
+        val speak = speak!!
 
     }
 
@@ -134,7 +139,19 @@ class AstrologerProfileActivity :
                             atvReadMore.gone()
                             atvAbout.maxLines = 50
                         }
+                        speakout!!.setOnClickListener {
+                            speakOut(atvAbout.text.toString());
+                            speak!!.visible()
+                            speakout!!.invisible()
+                        }
 
+
+                        speak!!.setOnClickListener {
+                            speakout!!.visible()
+                            speak!!.invisible()
+                            tts!!.stop()
+
+                        }
                         // setting skills
                         cgSkills.removeAllViews()
                         data.goodsShortDescription?.let { ss ->
@@ -312,6 +329,7 @@ class AstrologerProfileActivity :
         rlCall.setOnClickListener(this)
 
     }
+
 
 
     override fun handleApiErrorResponse(responseModel: BaseResponseModel<*>?) {
@@ -581,5 +599,25 @@ class AstrologerProfileActivity :
         progressBar?.gone()
     }
 
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage(Locale("en", "IN"))
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS","The Language specified is not supported!")
+            } else {
+
+            }
+
+        } else {
+            Log.e("TTS", "Initilization Failed!")
+        }
+    }
+    private fun speakOut(status: String ) {
+        val text = status
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null)
+
+    }
 
 }

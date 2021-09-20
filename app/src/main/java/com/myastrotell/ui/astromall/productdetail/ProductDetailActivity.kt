@@ -2,6 +2,9 @@ package com.myastrotell.ui.astromall.productdetail
 
 import android.content.Intent
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
+import android.text.Html
+import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.databinding.Observable
@@ -18,12 +21,17 @@ import com.myastrotell.ui.cart.CartActivity
 import com.myastrotell.utils.getViewModel
 import com.myastrotell.utils.gone
 import com.myastrotell.utils.visible
+import kotlinx.android.synthetic.main.activity_astrologer_profile.*
 import kotlinx.android.synthetic.main.activity_product_detail.*
+import kotlinx.android.synthetic.main.activity_product_detail.speak
+import kotlinx.android.synthetic.main.activity_product_detail.speakout
 import kotlinx.android.synthetic.main.layout_toolbar_with_cart.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ProductDetailActivity : BaseActivity<ActivityProductDetailBinding, AstroMallViewModel>(),
-    View.OnClickListener {
+    View.OnClickListener, TextToSpeech.OnInitListener {
 
     private lateinit var mImagesAdapter: ProductImagesPagerAdapter
     private lateinit var mImageList: ArrayList<String>
@@ -32,7 +40,7 @@ class ProductDetailActivity : BaseActivity<ActivityProductDetailBinding, AstroMa
     private val textToAppend="</p></body></html>"
 
     private var data: RedemptionSearchResponse? = null
-
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +50,9 @@ class ProductDetailActivity : BaseActivity<ActivityProductDetailBinding, AstroMa
         getAndSetIntentData()
 
         setupImagesAdapter()
-
+        tts = TextToSpeech(this, this)
+        val speakout = speakout!!
+        val speak = speak!!
     }
 
 
@@ -116,17 +126,25 @@ class ProductDetailActivity : BaseActivity<ActivityProductDetailBinding, AstroMa
             atvProductDesc.text = data.goodsShortDescription ?: ""
             atvProductPrice.text = (getString(R.string.currency) + "${data.goodsPrice} / piece")
 
-
-
             text.append(data.goodsDescription)
             text.append(textToAppend)
             webview.loadData(text.toString(), "text/html", "utf-8");
 
-
             atvProductDetail.text = data.goodsDescription
-
+            val plain = Html.fromHtml(text.toString()).toString()
             //atvProductDetail.text = data.goodsDescription
+            speakout!!.setOnClickListener {
+                speakOut(plain.toString());
+                speak!!.visible()
+                speakout!!.gone()
+            }
 
+            speak!!.setOnClickListener {
+                speakout!!.visible()
+                speak!!.gone()
+                tts!!.stop()
+
+            }
             mImageList.clear()
             mImageList.add(data.goodsImage)
 
@@ -228,5 +246,24 @@ class ProductDetailActivity : BaseActivity<ActivityProductDetailBinding, AstroMa
         }
 
     }
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            // set US English as language for tts
+            val result = tts!!.setLanguage( Locale("hi-IN"))
+          //  Locale locale = new Locale("en", "IN")
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS","The Language specified is not supported!")
+            } else {
 
+            }
+
+        } else {
+            Log.e("TTS", "Initilization Failed!")
+        }
+    }
+    private fun speakOut(status: String ) {
+        val text = status
+        tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null)
+
+    }
 }

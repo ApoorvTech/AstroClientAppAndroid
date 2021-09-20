@@ -9,7 +9,16 @@
         android:background="@color/colorWhite"
         tools:context="com.myastrotell.ui.astromall.items.AstroMallItemsActivity">
 
-
+        <RelativeLayout
+            android:layout_marginTop="22dp"
+            android:layout_width="333dp"
+            android:layout_height="333dp"
+            android:background="@drawable/fadeimageicon"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            ></RelativeLayout>
         <include
             android:id="@+id/rlHeader"
             layout="@layout/layout_toolbar_with_cart" />

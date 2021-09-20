@@ -15,6 +15,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:id="@+id/sdvImage"
                     android:layout_width="@dimen/dimen_0dp"
@@ -26,7 +27,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:placeholderImage="@drawable/shape_rect_gray_corners_5dp"
                     app:roundedCornerRadius="@dimen/dimen_5dp" />
-
 
 
 
@@ -48,20 +48,50 @@
                     app:layout_constraintTop_toBottomOf="@+id/sdvImage"
                     tools:text="@string/dummy_Description" />
 
-
-                <WebView
-                    android:id="@+id/webView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:scrollbars="none"
-                    android:layout_marginTop="@dimen/dimen_16dp"
-                    app:layout_constraintStart_toStartOf="@+id/sdvImage"
-                    app:layout_constraintEnd_toEndOf="@+id/sdvImage"
+                <ImageView
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    android:id="@+id/speakout"
+                    android:layout_width="@dimen/dimen_36dp"
+                    android:layout_height="@dimen/dimen_36dp"
+                    android:src="@drawable/speak"
                     app:layout_constraintLeft_toLeftOf="@+id/sdvImage"
                     app:layout_constraintRight_toRightOf="@+id/sdvImage"
                     app:layout_constraintTop_toBottomOf="@+id/sdvImage"
+                    tools:ignore="MissingConstraints"></ImageView>
+
+                <ImageView
+                    android:layout_marginTop="@dimen/dimen_12dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/sdvImage"
+                    app:layout_constraintRight_toRightOf="@+id/sdvImage"
+                    app:layout_constraintTop_toBottomOf="@+id/sdvImage"
+                    android:id="@+id/speak"
+                    android:layout_width="@dimen/dimen_36dp"
+                    android:layout_height="@dimen/dimen_36dp"
+                    android:src="@drawable/speakout"
+
+                    android:visibility="invisible"
+                    tools:ignore="MissingConstraints" />
+
+
+                <WebView
+
+                    android:id="@+id/webView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:scrollbars="none"
+
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:layout_marginLeft="@dimen/dimen_16dp"
+                   android:layout_marginBottom="@dimen/dimen_16dp"
+                    app:layout_constraintLeft_toLeftOf="@+id/speakout"
+                    app:layout_constraintRight_toRightOf="@+id/speakout"
+                    app:layout_constraintTop_toBottomOf="@+id/speakout"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    >
+
+
+
+                </WebView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

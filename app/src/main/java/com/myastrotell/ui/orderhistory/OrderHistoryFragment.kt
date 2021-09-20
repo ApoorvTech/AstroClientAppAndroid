@@ -313,16 +313,19 @@ class OrderHistoryFragment : BaseFragment<FragmentOrderHistoryBinding, OrderHist
                             when (viewModel?.type) {
 
                                 OrderHistoryType.CHAT.value -> {
-                                    val intent =
-                                        Intent(requireContext(), ChatActivity::class.java)
-                                    intent.putExtra(AppConstants.KEY_ID, data.id)
-                                    intent.putExtra(AppConstants.KEY_CHAT_ID, "")
-                                    intent.putExtra(AppConstants.KEY_NUMBER, data.redeemMode)
-                                    intent.putExtra(AppConstants.KEY_TITLE, data.productName)
-                                    intent.putExtra(AppConstants.KEY_IMAGE, data.imageURL)
-                                    intent.putExtra(AppConstants.KEY_DATE, data.redeemDate)
-                                    intent.putExtra(AppConstants.KEY_IS_SHOWING_HISTORY, true)
-                                    startActivity(intent)
+                                    val dateDiff = (System.currentTimeMillis() - data.redeemDate) / (1000 * 3600 * 24)
+                                    if (dateDiff < 4) {
+                                        val intent =
+                                            Intent(requireContext(), ChatActivity::class.java)
+                                        intent.putExtra(AppConstants.KEY_ID, data.id)
+                                        intent.putExtra(AppConstants.KEY_CHAT_ID, "")
+                                        intent.putExtra(AppConstants.KEY_NUMBER, data.redeemMode)
+                                        intent.putExtra(AppConstants.KEY_TITLE, data.productName)
+                                        intent.putExtra(AppConstants.KEY_IMAGE, data.imageURL)
+                                        intent.putExtra(AppConstants.KEY_DATE, data.redeemDate)
+                                        intent.putExtra(AppConstants.KEY_IS_SHOWING_HISTORY, true)
+                                        startActivity(intent)
+                                    }
                                 }
 
                                 OrderHistoryType.CALL.value -> {

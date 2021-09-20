@@ -51,7 +51,8 @@ class ChatActivity : BaseActivity<ActivityChatBinding, ChatsViewModel>(), View.O
         setUpAdapter()
 
         if (isShowingHistory) {
-            viewModel?.getOrderDetails(orderId)
+//            viewModel?.getOrderDetails(orderId)
+            showSubmitReview()
 
         } else {
             if (!isInitiatingChat) {

@@ -1,21 +1,37 @@
 package com.myastrotell.ui.dailyhoroscope
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.myastrotell.BaseApplication
 import com.myastrotell.R
 import com.myastrotell.adapters.HoroscopeListAdapter
 import com.myastrotell.adapters.SunSignListAdapter
 import com.myastrotell.base.BaseActivity
 import com.myastrotell.data.AppConstants
+import com.myastrotell.data.AstrologersListType
+import com.myastrotell.data.CapturedEvents
+import com.myastrotell.data.OrderHistoryType
 import com.myastrotell.databinding.ActivityDailyHoroscopeBinding
 import com.myastrotell.pojo.response.Feature
 import com.myastrotell.pojo.response.HororsopeDetails
+import com.myastrotell.ui.astrologerslist.AstrologersListActivity
+import com.myastrotell.ui.astrologynews.AstrologyNewsActivity
+import com.myastrotell.ui.home.readstory.ReadStoryActivity
+import com.myastrotell.ui.home.watchstory.WatchStoryActivity
+import com.myastrotell.ui.login.LoginSignUpActivity
+import com.myastrotell.ui.notifications.NotificationsActivity
+import com.myastrotell.ui.orderhistory.OrderHistoryActivity
+import com.myastrotell.ui.support.SupportActivity
 import com.myastrotell.utils.getViewModel
 import com.myastrotell.utils.gone
 import com.myastrotell.utils.visible
 import kotlinx.android.synthetic.main.activity_daily_horoscope.*
+import kotlinx.android.synthetic.main.activity_daily_horoscope.rvSunSigns
+import kotlinx.android.synthetic.main.layout_home.*
 import kotlinx.android.synthetic.main.layout_progressbar.*
 import kotlinx.android.synthetic.main.layout_toolbar_primary.*
 
@@ -37,7 +53,7 @@ class DailyHoroscopeActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        rlgochat.setOnClickListener(this)
         getData()
 
         setUpAdapters()
@@ -196,6 +212,11 @@ class DailyHoroscopeActivity :
         when (v?.id) {
             R.id.aivBack -> {
                 onBackPressed()
+            }
+            R.id.rlgochat -> {
+                val intent = Intent(this, AstrologersListActivity::class.java)
+                intent.putExtra(AppConstants.KEY_TYPE, AstrologersListType.CALL.value)
+                startActivity(intent)
             }
         }
     }

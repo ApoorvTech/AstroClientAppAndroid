@@ -7,7 +7,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.profile.UserProfileActivity">
-
+        <RelativeLayout
+            android:layout_marginTop="22dp"
+            android:layout_width="333dp"
+            android:layout_height="333dp"
+            android:background="@drawable/fadeimageicon"
+          android:layout_centerInParent="true"
+            ></RelativeLayout>
         <include
             android:id="@+id/rlHeader"
             layout="@layout/layout_toolbar_primary" />

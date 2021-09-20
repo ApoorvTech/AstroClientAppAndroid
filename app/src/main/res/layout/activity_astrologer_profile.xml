@@ -281,7 +281,26 @@
                         android:text="@string/about_me"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/text_size_large" />
+                 <RelativeLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/speakout"
+                        android:layout_width="@dimen/dimen_36dp"
+                        android:layout_height="@dimen/dimen_36dp"
+                        android:src="@drawable/speak"
 
+                        ></ImageView>
+
+                    <ImageView
+
+                        android:id="@+id/speak"
+                        android:layout_width="@dimen/dimen_36dp"
+                        android:layout_height="@dimen/dimen_36dp"
+                        android:src="@drawable/speakout"
+
+                        android:visibility="invisible" />
+                 </RelativeLayout>
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/atvAbout"
                         android:layout_width="match_parent"

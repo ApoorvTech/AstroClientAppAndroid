@@ -79,7 +79,8 @@ class ChatsViewModel : BaseViewModel() {
                 }
             }
             if (name.isBlank()) {
-                name = mRepo.getMsisdn()
+                val msisdn = mRepo.getMsisdn()
+                name = ("${msisdn.substring(0, 4)}xxxxxx")
             }
             userNameForReviewLiveData.value = name
         }
