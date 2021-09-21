@@ -1,8 +1,10 @@
 package com.myastrotell.ui.astrologynews
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+
 import androidx.lifecycle.Observer
 import com.myastrotell.R
 import com.myastrotell.adapters.AppViewPagerAdapter
@@ -46,6 +48,7 @@ class AstrologyNewsActivity : BaseActivity<ActivityAstrologyNewsBinding, Astrolo
 
             hideProgressBar()
             it.data?.productDetails?.let { newsList ->
+                Log.d("gsgsg",newsList.toString())
                 setUpPagerAdapter(newsList)
             }
         })
@@ -55,16 +58,19 @@ class AstrologyNewsActivity : BaseActivity<ActivityAstrologyNewsBinding, Astrolo
 
 
     private fun setUpPagerAdapter(newsList: List<ProductDetail>) {
-        mFragmentList = ArrayList()
+             mFragmentList = ArrayList()
         val titleList = ArrayList<String>()
 
         for(data in newsList){
             val fragment = AstroNewsFragment()
             fragment.news = data
+
             mFragmentList.add(fragment)
             titleList.add(data.productTitle)
-        }
 
+
+        }
+        Log.d("TAGlist", mFragmentList.toString())
         mPagerAdapter = AppViewPagerAdapter(supportFragmentManager, mFragmentList, titleList)
         vpAstrologyNews.adapter = mPagerAdapter
 

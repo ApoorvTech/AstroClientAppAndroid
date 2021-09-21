@@ -17,25 +17,30 @@ import kotlinx.android.synthetic.main.fragment_astrology_news.*
 import java.util.*
 
 
-    class AstroNewsFragment : BaseFragment<FragmentAstrologyNewsBinding, BaseViewModel>(), TextToSpeech.OnInitListener {
+class AstroNewsFragment : BaseFragment<FragmentAstrologyNewsBinding, BaseViewModel>(), TextToSpeech.OnInitListener {
 
     var news: ProductDetail? = null
-    private var text :StringBuilder= java.lang.StringBuilder("<html><body><p align=\"justify\">")
-    private val textToAppend="</p></body></html>";
+
+
     private var tts: TextToSpeech? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tts = TextToSpeech(context, this)
         sdvImage.setImageURI(news?.productImage)
+
+        val text :StringBuilder= java.lang.StringBuilder("<html><body><p align=\"justify\">")
+        val textToAppend="</p></body></html>"
+
         text.append(news?.productDescription)
         text.append(textToAppend)
         atvDescription.text = Html.fromHtml(text.toString())
         webView.loadData(text.toString(), "text/html", "utf-8");
-        webView.setBackgroundResource(R.drawable.fadeimageicons);
-        webView.setBackgroundColor(Color.TRANSPARENT);
+
+
         val speakout = speakout!!
         val speak = speak!!
         //atvDescription.text = news?.productDescription
+
+
         val plain = Html.fromHtml(text.toString()).toString()
         speakout!!.setOnClickListener {
 

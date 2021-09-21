@@ -40,6 +40,7 @@
                     android:layout_marginBottom="@dimen/dimen_25dp"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/text_size_16sp"
+
                     app:fontFamily="@font/roboto_regular"
                     app:layout_constraintStart_toStartOf="@+id/sdvImage"
                     app:layout_constraintEnd_toEndOf="@+id/sdvImage"
@@ -79,10 +80,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:scrollbars="none"
-
+                   android:foregroundGravity="center"
                     android:layout_marginRight="@dimen/dimen_16dp"
                     android:layout_marginLeft="@dimen/dimen_16dp"
-                   android:layout_marginBottom="@dimen/dimen_16dp"
+                    android:layout_marginBottom="@dimen/dimen_16dp"
                     app:layout_constraintLeft_toLeftOf="@+id/speakout"
                     app:layout_constraintRight_toRightOf="@+id/speakout"
                     app:layout_constraintTop_toBottomOf="@+id/speakout"
