@@ -21,10 +21,10 @@ class AstroNewsFragment : BaseFragment<FragmentAstrologyNewsBinding, BaseViewMod
 
     var news: ProductDetail? = null
 
-
     private var tts: TextToSpeech? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        tts = TextToSpeech(context, this)
         sdvImage.setImageURI(news?.productImage)
 
         val text :StringBuilder= java.lang.StringBuilder("<html><body><p align=\"justify\">")

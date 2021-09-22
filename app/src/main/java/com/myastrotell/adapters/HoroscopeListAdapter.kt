@@ -37,6 +37,7 @@ class HoroscopeListAdapter(
     override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
         tts = TextToSpeech(context, this)
         holder.atvTitle.text = mHororscopeList[position].productTitle
+
         // holder.atvDescription.text = mHororscopeList[position].productDescription
 
         val text: StringBuilder = java.lang.StringBuilder("<html><body><p align=\"justify\">")

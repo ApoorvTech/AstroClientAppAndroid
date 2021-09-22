@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorAccent"
-                android:padding="@dimen/dimen_8dp">
+                android:padding="@dimen/dimen_0dp">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/aivCross"
@@ -55,6 +55,7 @@
 
 
                 <RelativeLayout
+                    android:layout_centerVertical="true"
                     android:id="@+id/rlProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -71,6 +72,7 @@
                         android:layout_width="@dimen/dimen_45dp"
                         android:layout_height="@dimen/dimen_45dp"
                         android:layout_marginStart="@dimen/dimen_8dp"
+                        android:layout_centerVertical="true"
                         app:roundAsCircle="true"
                         app:placeholderImage="@drawable/ic_user_placeholder_side_menu"
                         app:placeholderImageScaleType="centerCrop" />
@@ -105,6 +107,7 @@
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimen_4dp"
                             android:paddingBottom="@dimen/dimen_4dp"
+
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/text_size_16sp"
                             tools:text="9876543210" />
@@ -113,6 +116,7 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/aivArrow"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -132,7 +136,7 @@
                 android:layout_height="match_parent"
                 android:layout_above="@+id/atvAppVersion"
                 android:layout_below="@id/rlTop"
-                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginTop="@dimen/dimen_4dp"
                 android:layout_marginBottom="@dimen/dimen_2dp"
 
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

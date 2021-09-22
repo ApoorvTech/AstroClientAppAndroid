@@ -51,7 +51,8 @@ class AstrologyNewsActivity : BaseActivity<ActivityAstrologyNewsBinding, Astrolo
                 Log.d("gsgsg",newsList.toString())
                 setUpPagerAdapter(newsList)
             }
-        })
+        }
+        )
 
         aivBack.setOnClickListener(this)
     }
